@@ -9,7 +9,7 @@
             src="../../resources/sap-ui-core.js"
             data-sap-ui-libs="sap.m"
             data-sap-ui-resourceroots='{
-				"sap/ui/demo/basicTemplate": "../../"
+				"simplifique/telaneg/tabela": "../../"
 			}'>
     </script>
 
@@ -23,7 +23,7 @@
 
 		sap.ui.getCore().attachInit(function () {
 			sap.ui.require([
-				"sap/ui/demo/basicTemplate/test/unit/allTests"
+				"simplifique/telaneg/tabela/test/unit/allTests"
 			], function() {
 				QUnit.start();
 			});

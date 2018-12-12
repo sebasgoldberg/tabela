@@ -7,7 +7,7 @@ sap.ui.define([
 
     Opa5.extendConfig({
         arrangements: new Arrangement(),
-        viewNamespace: "sap.ui.demo.basicTemplate.view.",
+        viewNamespace: "simplifique.telaneg.tabela.view.",
         autoWait: true
     });
 });

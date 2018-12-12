@@ -13,13 +13,13 @@ module.exports = function(grunt) {
 
         connect: {
             options: {
-                port: 8082,
+                port: 8182,
                 hostname: "localhost"
             },
             src: {},
             dist: {
                 options: {
-                    port: 8081,
+                    port: 8181,
                 },
             },
             transp: {},
@@ -96,7 +96,7 @@ module.exports = function(grunt) {
                 options: {
                     resources: {
                         cwd: "transp",
-                        prefix: "sap/ui/demo/basicTemplate"
+                        prefix: "simplifique/telaneg/tabela"
                     },
                     dest: "<%= dir.dist %>",
                     compatVersion: "1.52",

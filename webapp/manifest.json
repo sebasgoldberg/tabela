@@ -1,67 +1,133 @@
 {
-	"_version": "1.8.0",
-	"sap.app": {
-		"id": "sap.ui.demo.basicTemplate",
-		"type": "application",
-		"i18n": "i18n/i18n.properties",
-		"applicationVersion": {
-			"version": "1.0.0"
-		},
-		"title": "{{appTitle}}",
-		"description": "{{appDescription}}",
-		"resources": "resources.json",
-		"ach": "ach"
-	},
+    "_version": "1.8.0",
+    "sap.app": {
+        "id": "simplifique.telaneg.custos",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "Negociação Custos",
+        "description": "Negociação Custos",
+        "resources": "resources.json",
+        "ach": "ach"
+    },
 
-	"sap.ui": {
-		"technology": "UI5",
-		"icons": {
-			"icon": "",
-			"favIcon": "",
-			"phone": "",
-			"phone@2": "",
-			"tablet": "",
-			"tablet@2": ""
-		},
-		"deviceTypes": {
-			"desktop": true,
-			"tablet": true,
-			"phone": true
-		}
-	},
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
 
-	"sap.ui5": {
-		"rootView": {
-			"viewName": "sap.ui.demo.basicTemplate.view.App",
-			"type": "XML",
-			"async": true,
-			"id": "app"
-		},
-		"dependencies": {
-			"minUI5Version": "1.30.0",
-			"libs": {
-				"sap.ui.core": {},
-				"sap.m": {},
-				"sap.ui.layout": {},
+    "sap.ui5": {
+        "extends": {
+            "component": "simplifique.telaneg.telacus",
+            "minVersion": "0.1.0",
+            "extensions": {
+                "sap.ui.viewExtensions": {
+                    "simplifique.telaneg.base.view.TaskList": {
+                        "Columns": {
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "simplifique.telaneg.custos.view.TaskList.Columns",
+                            "type": "XML"
+                        },
+                        "Cells": {
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "simplifique.telaneg.custos.view.TaskList.Cells",
+                            "type": "XML"
+                        }
+                    },
+                    "simplifique.telaneg.base.view.TaskDetail": {
+                        "Actions": {
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "simplifique.telaneg.custos.view.TaskDetail.Actions",
+                            "type": "XML"
+                        },
+                        "InformacaoGeralSubsections": {
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "simplifique.telaneg.custos.view.TaskDetail.InformacaoGeralSubsections",
+                            "type": "XML"
+                        },
+                        "Abrangencia": {
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "simplifique.telaneg.custos.view.TaskDetail.Abrangencia",
+                            "type": "XML"
+                        },
+                        "AbrangenciaSubsections": {
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "simplifique.telaneg.custos.view.TaskDetail.AbrangenciaSubsections",
+                            "type": "XML"
+                        }
+                    },
+                    "simplifique.telaneg.base.view.ItemsNegociacao": {
+                        "Toolbar": {
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "simplifique.telaneg.custos.view.ItemsNegociacao.Toolbar",
+                            "type": "XML"
+                        },
+                        "Columns": {
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "simplifique.telaneg.custos.view.ItemsNegociacao.Columns",
+                            "type": "XML"
+                        }
+                    },
+                    "simplifique.telaneg.base.view.ComentariosNegociacao": {
+                        "RejeicaoFornecedorSubSection": {
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "simplifique.telaneg.custos.view.Empty",
+                            "type": "XML"
+                        },
+                        "ComentarioAcordoSubSection": {
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "simplifique.telaneg.custos.view.Empty",
+                            "type": "XML"
+                        }
+                    }
+                },
+                "sap.ui.controllerExtensions": {
+                    "simplifique.telaneg.base.controller.TaskDetail": {
+                        "controllerName": "simplifique.telaneg.custos.controller.TaskDetail"
+                    }
+                }
+            }
+        },
+        "dependencies": {
+            "minUI5Version": "1.30.0",
+            "libs": {
+                "sap.ui.core": {},
+                "sap.m": {},
+                "sap.ui.layout": {},
                 "custom.libs.external.polyfill": {}
-			}
-		},
-		"contentDensities": {
-			"compact": true,
-			"cozy": true
-		},
-		"models": {
-			"i18n": {
-				"type": "sap.ui.model.resource.ResourceModel",
-				"settings": {
-					"bundleName": "sap.ui.demo.basicTemplate.i18n.i18n"
-				}
-			}
-		},
-		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}]
-		}
-	}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "simplifique.telaneg.custos.i18n.i18n"
+                }
+            }
+        },
+        "resources": {
+            "css": [{
+                "uri": "css/style.css"
+            }]
+        }
+    }
 }
+

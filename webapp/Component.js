@@ -1,7 +1,7 @@
-import UIComponent from "sap/ui/core/UIComponent";
-import models from "sap/ui/demo/basicTemplate/model/models";
+import UIComponent from "simplifique/telaneg/custos/Component";
+import models from "simplifique/telaneg/tabela/model/models";
 
-export default UIComponent.extend("sap.ui.demo.basicTemplate.Component", {
+export default UIComponent.extend("simplifique.telaneg.tabela.Component", {
 
     metadata: {
         manifest: "json"
