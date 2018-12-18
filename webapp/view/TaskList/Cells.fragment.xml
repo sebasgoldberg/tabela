@@ -1,0 +1,32 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form">
+                                    <ObjectIdentifier title="{
+                                        path: 'ID',
+                                        type: 'sap.ui.model.odata.type.String',
+                                        constraints: {
+                                            isDigitSequence : true,
+                                            maxLength : 10
+                                            }
+                                        }"
+                                        />
+                                    <ObjectStatus text="{bandeira/Nome}" />
+                                    <ObjectStatus text="{FornecedorID}" />
+                                    <ObjectStatus text="{fornecedor/Nome}" wrapping="true" />
+
+                                    <ObjectStatus text="{
+                                        path: 'ApuracaoAte',
+                                        type: 'sap.ui.model.type.Date',
+                                        formatOptions: { UTC: true, style: 'short' }
+                                        }" />
+
+                                    <ObjectStatus text="{
+                                        path: 'DataEnvioTabela',
+                                        type: 'sap.ui.model.type.Date',
+                                        formatOptions: { UTC: true, style: 'short' }
+                                        }"
+                                        />
+
+                                    <ObjectStatus text="{status/Descricao}"
+                                         />
+
+</core:FragmentDefinition>
+

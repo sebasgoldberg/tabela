@@ -1,7 +1,7 @@
 {
     "_version": "1.8.0",
     "sap.app": {
-        "id": "simplifique.telaneg.custos",
+        "id": "simplifique.telaneg.tabela",
         "type": "application",
         "i18n": "i18n/i18n.properties",
         "applicationVersion": {
@@ -37,14 +37,19 @@
             "extensions": {
                 "sap.ui.viewExtensions": {
                     "simplifique.telaneg.base.view.TaskList": {
+                        "Toolbar": {
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "simplifique.telaneg.tabela.view.TaskList.Toolbar",
+                            "type": "XML"
+                        },
                         "Columns": {
                             "className": "sap.ui.core.Fragment",
-                            "fragmentName": "simplifique.telaneg.custos.view.TaskList.Columns",
+                            "fragmentName": "simplifique.telaneg.tabela.view.TaskList.Columns",
                             "type": "XML"
                         },
                         "Cells": {
                             "className": "sap.ui.core.Fragment",
-                            "fragmentName": "simplifique.telaneg.custos.view.TaskList.Cells",
+                            "fragmentName": "simplifique.telaneg.tabela.view.TaskList.Cells",
                             "type": "XML"
                         }
                     },
