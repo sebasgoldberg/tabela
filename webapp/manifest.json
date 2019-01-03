@@ -7,8 +7,8 @@
         "applicationVersion": {
             "version": "1.0.0"
         },
-        "title": "Negociação Custos",
-        "description": "Negociação Custos",
+        "title": "Tabela Fornecedor",
+        "description": "Tabela Fornecedor",
         "resources": "resources.json",
         "ach": "ach"
     },
@@ -32,11 +32,16 @@
 
     "sap.ui5": {
         "extends": {
-            "component": "simplifique.telaneg.telacus",
+            "component": "simplifique.telaneg.custos",
             "minVersion": "0.1.0",
             "extensions": {
                 "sap.ui.viewExtensions": {
                     "simplifique.telaneg.base.view.TaskList": {
+                        "MoreFilterItems": {
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "simplifique.telaneg.tabela.view.TaskList.MoreFilterItems",
+                            "type": "XML"
+                        },
                         "Toolbar": {
                             "className": "sap.ui.core.Fragment",
                             "fragmentName": "simplifique.telaneg.tabela.view.TaskList.Toolbar",
@@ -102,7 +107,7 @@
                 },
                 "sap.ui.controllerReplacements": {
                     "simplifique.telaneg.base.controller.TaskList": "simplifique.telaneg.tabela.controller.TaskList",
-                    "simplifique.telaneg.base.controller.TaskDetail": "simplifique.telaneg.custos.controller.TaskDetail"
+                    "simplifique.telaneg.base.controller.TaskDetail": "simplifique.telaneg.tabela.controller.TaskDetail"
                 }
             }
         },

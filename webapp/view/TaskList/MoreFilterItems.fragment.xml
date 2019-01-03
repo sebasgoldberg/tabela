@@ -1,0 +1,23 @@
+<core:FragmentDefinition
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form">
+
+    <fb:FilterItem
+        label="Data Envio"
+        name="dataEnvioFilter">
+        <fb:control>
+            <HBox>
+                <DateRangeSelection
+                    submit="onSearch"
+                    id="dataEnvioDateRangeSelection"
+                    dateValue="{tabelaView>/filter/dataEnvioDe}"
+                    secondDateValue="{tabelaView>/filter/dataEnvioAte}"
+                    change="onSearch"
+                />
+                <Button icon="sap-icon://delete" press="clearDataEnvioDateRangeSelection"/>
+            </HBox>
+        </fb:control>
+    </fb:FilterItem>
+
+   
+</core:FragmentDefinition>
