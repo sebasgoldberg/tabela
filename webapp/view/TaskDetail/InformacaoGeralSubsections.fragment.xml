@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form"
+    xmlns:uxap="sap.uxap"
+>
+    <uxap:ObjectPageSubSection title="Informações Gerais" id="infoGeralSubSection">
+        <uxap:blocks>                            
+            <core:Fragment fragmentName="simplifique.telaneg.tabela.view.TaskDetail.InformacaoGeral" type="XML"/>
+        </uxap:blocks>
+    </uxap:ObjectPageSubSection> 
+</core:FragmentDefinition>

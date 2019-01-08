@@ -1,0 +1,138 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form">
+    <form:Form editable="true">
+        <form:layout>
+            <form:ResponsiveGridLayout labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="2" singleContainerFullSize="false" breakpointL="800" breakpointM="400"/>
+        </form:layout>
+        <form:formContainers>
+            <form:FormContainer title="">
+                <form:formElements>
+
+                    <form:FormElement>
+                        <form:label>
+                            <Label text="Descrição"/>
+                        </form:label>
+                        <form:fields>
+                            <Input
+                                submit="onSubmit"
+                                liveChange="onLiveChangeDescricao"
+                                id="descricaoNegociacaoInput"
+                                enabled="{view>/isNegociacaoEditavel}"
+                                value="{
+                                    path: 'Descricao',
+                                    type: 'sap.ui.model.odata.type.String',
+                                    constraints: { maxLength: 40 }
+                                    }" placeholder="Indique aqui alguma descrição" type="Text" showValueHelp="false" />
+                        </form:fields>
+                    </form:FormElement>
+
+                    <form:FormElement>
+                        <form:label>
+                            <Label text="Data Envio"/>
+                        </form:label>
+                        <form:fields>
+                            <DatePicker
+                                id="DataEnvioDatePicker"
+                                enabled="false"
+                                value="{
+                                        path:'Vencimento', 
+                                        type:'sap.ui.model.type.Date', 
+                                        formatOptions: { 
+                                            pattern: 'dd.MM.yyyy', strictParsing: true, UTC: true
+                                        }
+                                        }"
+                                class="sapUiSmallMarginBottom"/>
+                        </form:fields>
+                    </form:FormElement>
+
+                </form:formElements>
+            </form:FormContainer>
+            <form:FormContainer title="">
+                <form:formElements>
+
+                    <form:FormElement>
+                        <form:label>
+                            <Label text="Fornecedor" required="true"/>
+                        </form:label>
+                        <form:fields>
+                            <Input
+                                placeholder="Codigo/Desc."
+                                enabled="{view>/isNegociacaoEditavel}"
+                                id="fornecedorNegociacaoInput"
+                                required="false"
+                                value="{FornecedorID}" 
+                                showSuggestion="true"
+                                suggest="suggestFornecedores"
+                                suggestionItems="{/FornecedorSet}"
+                                maxSuggestionWidth="500px"
+                                showValueHelp="false"
+                                >
+                                <core:ListItem text="{ID}" additionalText="{Nome}" />
+                               <layoutData>
+                                    <layout:GridData span="XL4 L4 M4 S4" />
+                                </layoutData>
+                            </Input>
+                            <Input value="{fornecedor/Nome}" enabled="false"/>
+                        </form:fields>
+                    </form:FormElement>
+
+                    <form:FormElement>
+                        <form:label>
+                            <Label text="Origem Tabela" required="true"/>
+                        </form:label>
+                        <form:fields>
+                            <ComboBox
+                                placeholder="Selecione origem"
+                                enabled="{view>/isNegociacaoEditavel}"
+                                id="origemTabelaComboBox"
+                                selectedKey="{Origem}"
+                                items="{/OrigemTabelaSet}"
+                                >
+                                <core:Item key="{ID}" text="{Descricao}" />
+                            </ComboBox>
+                        </form:fields>
+                    </form:FormElement>
+
+                    <form:FormElement>
+                        <form:label>
+                            <Label text="Vigencia Tabela"/>
+                        </form:label>
+                        <form:fields>
+                            <DatePicker
+                                id="VigenciaTabelaDatePicker"
+                                enabled="false"
+                                value="{
+                                        path:'ApuracaoAte', 
+                                        type:'sap.ui.model.type.Date', 
+                                        formatOptions: { 
+                                            pattern: 'dd.MM.yyyy', strictParsing: true, UTC: true
+                                        }
+                                        }"
+                                class="sapUiSmallMarginBottom"/>
+                        </form:fields>
+                    </form:FormElement>
+
+                </form:formElements>
+            </form:FormContainer>
+        </form:formContainers>
+        <form:formContainers>
+            <form:FormContainer title="">
+                <form:formElements>
+
+                    <form:FormElement>
+                        <form:label>
+                            <Label text="Motivo"/>
+                        </form:label>
+                        <form:fields>
+                            <TextArea
+                                enabled="{view>/isNegociacaoEditavel}"
+                                value="{comentarioImpressao/Texto}" growing="true" width="100%"/>
+                        </form:fields>
+                    </form:FormElement>
+
+
+                </form:formElements>
+            </form:FormContainer>
+        </form:formContainers>
+    </form:Form>
+</core:FragmentDefinition>
+

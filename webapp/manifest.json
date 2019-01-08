@@ -66,17 +66,12 @@
                         },
                         "InformacaoGeralSubsections": {
                             "className": "sap.ui.core.Fragment",
-                            "fragmentName": "simplifique.telaneg.custos.view.TaskDetail.InformacaoGeralSubsections",
-                            "type": "XML"
-                        },
-                        "Abrangencia": {
-                            "className": "sap.ui.core.Fragment",
-                            "fragmentName": "simplifique.telaneg.custos.view.TaskDetail.Abrangencia",
+                            "fragmentName": "simplifique.telaneg.tabela.view.TaskDetail.InformacaoGeralSubsections",
                             "type": "XML"
                         },
                         "AbrangenciaSubsections": {
                             "className": "sap.ui.core.Fragment",
-                            "fragmentName": "simplifique.telaneg.custos.view.TaskDetail.AbrangenciaSubsections",
+                            "fragmentName": "simplifique.telaneg.tabela.view.TaskDetail.AbrangenciaSubsections",
                             "type": "XML"
                         }
                     },
