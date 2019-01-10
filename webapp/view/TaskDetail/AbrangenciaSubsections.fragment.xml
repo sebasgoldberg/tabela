@@ -1,19 +1,9 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form"
     xmlns:uxap="sap.uxap"
     >
-
-    <uxap:ObjectPageSubSection title="Abrangência">
-        <uxap:blocks>
-            <core:ExtensionPoint name="Abrangencia" >
-                <core:Fragment fragmentName="simplifique.telaneg.custos.view.TaskDetail.Abrangencia" type="XML" />
-            </core:ExtensionPoint>
-        </uxap:blocks>
-    </uxap:ObjectPageSubSection>
     <uxap:ObjectPageSubSection title="Fornecedores" id="fornecedoresAdicionaisSubSection">
         <uxap:blocks>
             <core:Fragment fragmentName="simplifique.telaneg.base.view.FornecedoresAdicionais" type="XML" />
         </uxap:blocks>
     </uxap:ObjectPageSubSection>
-
-    
 </core:FragmentDefinition>

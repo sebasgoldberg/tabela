@@ -22,7 +22,7 @@
 
                             <Column width="10%" minScreenWidth="Phone" >
                                 <header>
-                                    <Text text="Vigência Até Tabela" />
+                                    <Text text="Vigência Tabela De" />
                                 </header>
                             </Column>
 

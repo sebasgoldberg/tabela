@@ -1,3 +1,5 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form">
-   <Button text="Importar Tabela" icon="sap-icon://upload" iconFirst="true" press="onImportarTabela" /> 
+   <!--
+   <Button text="Importar Tabela" icon="sap-icon://upload" iconFirst="true" press="onImportarTabela" />
+   --> 
 </core:FragmentDefinition>

@@ -1,5 +1,6 @@
 import UIComponent from "simplifique/telaneg/custos/Component";
 import models from "simplifique/telaneg/tabela/model/models";
+import TabelasImportadasDialog from "simplifique/telaneg/tabela/controller/TabelasImportadasDialog";
 
 export default UIComponent.extend("simplifique.telaneg.tabela.Component", {
 
@@ -17,9 +18,15 @@ export default UIComponent.extend("simplifique.telaneg.tabela.Component", {
         // call the base component's init function
         UIComponent.prototype.init.apply(this, arguments);
 
+        this._tabelasImportadasDialog = new TabelasImportadasDialog(this.getRootControl());
+
         // set the device model
         this.setModel(models.createDeviceModel(), "device");
-    }
+    },
+
+    getTabelasImportadasDialog: function() {
+        return this._tabelasImportadasDialog;
+    },
 
 });
 

@@ -27,6 +27,23 @@
 
                     <form:FormElement>
                         <form:label>
+                            <Label text="Bandeira" required="true"/>
+                        </form:label>
+                        <form:fields>
+                            <ComboBox
+                                placeholder="Selecione a bandeira"
+                                enabled="{view>/isNegociacaoEditavel}"
+                                id="bandeiraNegociacaoComboBox"
+                                selectedKey="{Bandeira}"
+                                items="{/BandeiraSet}"
+                                >
+                                <core:Item key="{ID}" text="{Nome}" />
+                            </ComboBox>
+                        </form:fields>
+                    </form:FormElement>
+
+                    <form:FormElement>
+                        <form:label>
                             <Label text="Data Envio"/>
                         </form:label>
                         <form:fields>
@@ -82,7 +99,7 @@
                         <form:fields>
                             <ComboBox
                                 placeholder="Selecione origem"
-                                enabled="{view>/isNegociacaoEditavel}"
+                                enabled="false"
                                 id="origemTabelaComboBox"
                                 selectedKey="{Origem}"
                                 items="{/OrigemTabelaSet}"
@@ -94,14 +111,14 @@
 
                     <form:FormElement>
                         <form:label>
-                            <Label text="Vigencia Tabela"/>
+                            <Label text="Inicio Vigencia Tabela"/>
                         </form:label>
                         <form:fields>
                             <DatePicker
                                 id="VigenciaTabelaDatePicker"
-                                enabled="false"
+                                enabled="{view>/isNegociacaoEditavel}"
                                 value="{
-                                        path:'ApuracaoAte', 
+                                        path:'ApuracaoDe', 
                                         type:'sap.ui.model.type.Date', 
                                         formatOptions: { 
                                             pattern: 'dd.MM.yyyy', strictParsing: true, UTC: true

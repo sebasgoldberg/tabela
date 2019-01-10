@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form">
+
+    <Button text="" icon="{
+        parts: [ {path: 'view_ext>/ExibirInformacoesAtuaisItems'} ],
+        formatter: '.formatter.exibirInformacoesAtuaisItemsButtonIcon'
+        }" iconFirst="false" type="Transparent" press="onExibirInformacoesAtuais" />
+
+    <Button
+        visible="{view>/isNegociacaoEditavel}"
+        id="removeItemButton"
+        text="" icon="sap-icon://delete" iconFirst="false" type="Transparent" press="onEliminarItensSelecionados" />
+
+</core:FragmentDefinition>

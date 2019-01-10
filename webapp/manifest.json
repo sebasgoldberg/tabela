@@ -61,7 +61,7 @@
                     "simplifique.telaneg.base.view.TaskDetail": {
                         "Actions": {
                             "className": "sap.ui.core.Fragment",
-                            "fragmentName": "simplifique.telaneg.custos.view.TaskDetail.Actions",
+                            "fragmentName": "simplifique.telaneg.tabela.view.TaskDetail.Actions",
                             "type": "XML"
                         },
                         "InformacaoGeralSubsections": {
@@ -76,9 +76,9 @@
                         }
                     },
                     "simplifique.telaneg.base.view.ItemsNegociacao": {
-                        "Toolbar": {
+                        "ToolbarCompleta": {
                             "className": "sap.ui.core.Fragment",
-                            "fragmentName": "simplifique.telaneg.custos.view.ItemsNegociacao.Toolbar",
+                            "fragmentName": "simplifique.telaneg.tabela.view.ItemsNegociacao.ToolbarCompleta",
                             "type": "XML"
                         },
                         "Columns": {
