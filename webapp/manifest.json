@@ -73,6 +73,11 @@
                             "className": "sap.ui.core.Fragment",
                             "fragmentName": "simplifique.telaneg.tabela.view.TaskDetail.AbrangenciaSubsections",
                             "type": "XML"
+                        },
+                        "ContratoObjectPageSection": {
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "simplifique.telaneg.custos.view.Empty",
+                            "type": "XML"
                         }
                     },
                     "simplifique.telaneg.base.view.ItemsNegociacao": {
@@ -83,7 +88,7 @@
                         },
                         "Columns": {
                             "className": "sap.ui.core.Fragment",
-                            "fragmentName": "simplifique.telaneg.custos.view.ItemsNegociacao.Columns",
+                            "fragmentName": "simplifique.telaneg.tabela.view.ItemsNegociacao.Columns",
                             "type": "XML"
                         }
                     },

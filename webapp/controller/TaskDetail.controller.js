@@ -32,6 +32,13 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
             this.refreshItems();
     },
 
+    refreshFornecedores: function() {
+        this.getView()
+            .byId('fornecedoresAdicionaisTable')
+            .getBinding('items')
+            .refresh();
+    },
+
 });
 
 
