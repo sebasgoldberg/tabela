@@ -1,0 +1,25 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form"
+    xmlns:uxap="sap.uxap"
+    >
+
+    <uxap:ObjectPageSection title="Negociações Geradas" id="negociacoesFilhasObjectPageSection">
+        <uxap:subSections>
+            <uxap:ObjectPageSubSection title="Negociações Geradas" id="negociacoesFilhasSubSection" visible="{negociacoesFilhas}">
+                <uxap:blocks>
+                    <core:Fragment fragmentName="simplifique.telaneg.tabela.view.TaskDetail.NegociacoesFilhas" type="XML" />
+                </uxap:blocks>
+            </uxap:ObjectPageSubSection>
+        </uxap:subSections>
+    </uxap:ObjectPageSection>
+
+    <uxap:ObjectPageSection title="Fornecedores" id="fornecedoresObjectPageSection">
+        <uxap:subSections>
+            <uxap:ObjectPageSubSection title="Fornecedores" id="fornecedoresAdicionaisSubSection">
+                <uxap:blocks>
+                    <core:Fragment fragmentName="simplifique.telaneg.base.view.FornecedoresAdicionais" type="XML" />
+                </uxap:blocks>
+            </uxap:ObjectPageSubSection>
+        </uxap:subSections>
+    </uxap:ObjectPageSection>
+
+</core:FragmentDefinition>

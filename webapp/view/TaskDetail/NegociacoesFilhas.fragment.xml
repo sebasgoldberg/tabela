@@ -1,0 +1,63 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" >
+
+    <Table 
+        itemPress="onNavigateToNegociacaoFilha"
+        alternateRowColors="true"
+        showSeparators="All"
+        growing='true'
+        growingThreshold='5'
+        growingScrollToLoad='false'
+        items="{path:'negociacoesFilhas', parameters: { templateShareable: true, expand: 'status'} }"
+        id="negociacoesFilhasTable"
+        mode="" 
+        >
+        <headerToolbar>
+            <Toolbar width="auto" height="46px" design="Transparent" visible="true" enabled="true">
+                <content>
+                    <ToolbarSpacer width=""/>
+                </content>
+                <tooltip/>
+            </Toolbar>
+        </headerToolbar>
+        <columns>
+
+            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="false" popinDisplay="Inline" mergeDuplicates="false">
+                <header>
+                    <Text text="Negociação" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                </header>
+                <footer/>
+            </Column>
+
+            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                <header>
+                    <Text text="Descrição" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+                </header>
+                <footer/>
+            </Column>
+
+            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                <header>
+                    <Text text="Status" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+                </header>
+                <footer/>
+            </Column>
+
+        </columns>
+        <items>
+            <ColumnListItem type="Active">
+                <cells>
+
+                    <ObjectIdentifier title="{ID}"
+                        text="" titleActive="false" visible="true"/>
+
+                    <Text text="{Descricao}" wrapping="true" />
+
+                    <Text text="{status/Descricao}" wrapping="true" />
+
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+
+</core:FragmentDefinition>
+

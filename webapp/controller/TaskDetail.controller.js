@@ -39,6 +39,12 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
             .refresh();
     },
 
+    onNavigateToNegociacaoFilha: function(oEvent) {
+        let oListItem = oEvent.getParameter('listItem');
+        let sNegociacaoID = oListItem.getBindingContext().getObject().ID;
+        this.navTo('TaskDetail', {negociacaoID: sNegociacaoID});
+    },
+
 });
 
 
