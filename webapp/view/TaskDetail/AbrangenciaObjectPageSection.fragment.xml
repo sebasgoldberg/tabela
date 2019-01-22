@@ -22,4 +22,14 @@
         </uxap:subSections>
     </uxap:ObjectPageSection>
 
+    <uxap:ObjectPageSection title="Variação Custo" id="variacaoCustoObjectPageSection">
+        <uxap:subSections>
+            <uxap:ObjectPageSubSection title="Variação Custo" id="variacaoCustoSubSection" visible="true">
+                <uxap:blocks>
+                    <core:Fragment fragmentName="simplifique.telaneg.tabela.view.TaskDetail.VariacaoCusto" type="XML" />
+                </uxap:blocks>
+            </uxap:ObjectPageSubSection>
+        </uxap:subSections>
+    </uxap:ObjectPageSection>
+
 </core:FragmentDefinition>

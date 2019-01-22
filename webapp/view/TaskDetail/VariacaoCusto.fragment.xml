@@ -1,0 +1,74 @@
+<core:FragmentDefinition 
+    xmlns:core="sap.ui.core"
+    xmlns="sap.ui.table"
+    xmlns:m="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+
+    <TreeTable
+        id="variacaoCustoTreeTable"
+        selectionMode="None"
+        enableColumnReordering="false"
+        expandFirstLevel="false"
+        class="tabelaItens"
+        rows="{
+            path : 'agregacao/filhos',
+            parameters : {
+                templateShareable: true,
+                expand:'',
+                numberOfExpandedLevels: 0,
+                treeAnnotationProperties : {
+                    hierarchyLevelFor : 'Nivel',
+                    hierarchyNodeFor : 'ID',
+                    hierarchyParentNodeFor : 'Pai',
+                    hierarchyDrillStateFor : 'TipoNo'
+                }
+            }
+        }">
+
+        <toolbar>
+            <m:Toolbar>
+                <m:ToolbarSpacer/>
+
+                <m:Button
+                    text="Exportar"
+                    id="exportarVariacaoCustoButton"
+                    icon="sap-icon://download" iconFirst="true" type="Transparent" press="onExportarVariacaoCusto" />
+
+            </m:Toolbar>
+        </toolbar>
+
+        <columns>
+
+
+            <Column label="Codigo"
+                width="25%" >
+                <template>
+                    <m:Text text="{ItemID}" wrapping="true" />
+                </template>
+            </Column>
+
+            <Column label="Descrição" width="60%" >
+                <template>
+                    <m:Text text="{DescricaoItem}" wrapping="true" />
+                </template>
+            </Column>
+
+            <Column label="Part. Compra" tooltip="Participação de Compra" >
+                <template>
+                    <m:Text text="{ParticipacaoCompra}" wrapping="true" />
+                </template>
+            </Column>
+            
+            <!-- Inicio Colunas Sell-in -->
+            <Column label="Var. Custo" tooltip="Variação de Custo" >
+                <template>
+                    <m:Text text="{VariacaoCustoGeral}" wrapping="true" />
+                </template>
+            </Column>
+
+        </columns>
+
+    </TreeTable> 
+ 
+</core:FragmentDefinition>
+

@@ -20,16 +20,24 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
         oTabelasImportadasDialog.open(sNegociacaoPath);
     },
 
+    refreshVariacaoCusto: function() {
+        this.getView().byId('variacaoCustoTreeTable').getBinding('rows').refresh();
+    },
+
     onDeleteFornecedorAdicional: async function(oEvent) {
         let bEliminacaoRealizada = await Controller.prototype.onDeleteFornecedorAdicional.apply(this, oEvent);
-        if (bEliminacaoRealizada)
+        if (bEliminacaoRealizada){
             this.refreshItems();
+            this.refreshVariacaoCusto();
+        }
     },
 
     onAddFornecedorAdicional: async function(oEvent) {
         let bAdicaoRealizada = await Controller.prototype.onAddFornecedorAdicional.apply(this, oEvent);
-        if (bAdicaoRealizada)
+        if (bAdicaoRealizada){
             this.refreshItems();
+            this.refreshVariacaoCusto();
+        }
     },
 
     refreshFornecedores: function() {
