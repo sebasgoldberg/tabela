@@ -1,0 +1,204 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" >
+
+    <Table 
+    keyboardMode="Edit"
+    alternateRowColors="true"
+    showSeparators="All"
+    growing='false'
+    growingThreshold='5'
+    growingScrollToLoad='false'
+    items="{
+        path:'items',
+        parameters:{
+            templateShareable: true,
+            expand:'itemMerc,itemMerc/secao,itemMerc/grupo'
+            }
+        }"
+    id="ComparativoUFTable"
+    mode="" 
+    >
+        <headerToolbar>
+            <Toolbar width="auto" height="46px" design="Transparent" visible="true" enabled="true">
+                <content>
+                    <ToolbarSpacer width=""/>
+
+
+                    <ToggleButton
+                        pressed="{view_tab>/SemICMS}"
+                        text="Sem ICMS"
+                        icon="sap-icon://unpaid-leave"
+                        iconFirst="false"
+                        type="Transparent"
+                        />
+
+                </content>
+                <tooltip/>
+            </Toolbar>
+        </headerToolbar>
+        <columns>
+
+            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="false" popinDisplay="Inline" mergeDuplicates="false">
+                <header>
+                    <Text text="Mercadoria" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                </header>
+                <footer/>
+            </Column>
+
+            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="false" popinDisplay="Inline" mergeDuplicates="false">
+                <header>
+                    <Text text="Descrição" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                </header>
+                <footer/>
+            </Column>
+
+            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                <header>
+                    <Text text="Fornecedor" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+                </header>
+                <footer/>
+            </Column>
+
+            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                <header>
+                    <Text text="Seção" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+                </header>
+                <footer/>
+            </Column>
+
+            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                <header>
+                    <Text text="Grupo" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+                </header>
+                <footer/>
+            </Column>
+
+            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                <header>
+                    <Text text="UF" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+                </header>
+                <footer/>
+            </Column>
+
+            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                <header>
+                    <Text text="Custo Novo" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+                </header>
+                <footer/>
+            </Column>
+
+            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                <header>
+                    <Text text="Custo Atual" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+                </header>
+                <footer/>
+            </Column>
+
+            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                <header>
+                    <Text text="Var. Custo" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+                </header>
+                <footer/>
+            </Column>
+
+        </columns>
+        <items>
+            <ColumnListItem>
+                <cells>
+
+                    <Text text="{
+                        parts: [ {path: 'itemMerc/ID'}, {path: 'itemMerc/Type'} ],
+                        formatter: '.formatter.formatItemMerc'
+                        }" wrapping="true" />
+
+                    <Text text="{itemMerc/Nome}" wrapping="true" />
+
+                    <Text text="{FornecedorID}" wrapping="true" />
+
+                    <Text text="{itemMerc/secao/Nome}" wrapping="true" />
+
+                    <Text text="{itemMerc/grupo/Nome}" wrapping="true" />
+
+                    <Text text="{itemOrg/ID}" wrapping="true" />
+
+                    <VBox>
+
+                        <Text text="{
+                            path: 'simulacao/CustoReal',
+                            type: 'sap.ui.model.odata.type.Decimal',
+                            constraints: {
+                                precision: 16,
+                                scale: 6
+                                }
+                            }" wrapping="true"
+                            />
+
+                        <Text text="{
+                            path: 'simulacao/CustoRealSemICMS',
+                            type: 'sap.ui.model.odata.type.Decimal',
+                            constraints: {
+                                precision: 16,
+                                scale: 6
+                                }
+                            }" wrapping="true"
+                            visible="{view_tab>/SemICMS}"
+                            />
+
+                    </VBox>
+
+                    <VBox>
+
+                        <Text text="{
+                            path: 'informacao/CustoReal',
+                            type: 'sap.ui.model.odata.type.Decimal',
+                            constraints: {
+                                precision: 16,
+                                scale: 6
+                                }
+                            }" wrapping="true"
+                            />
+
+                        <Text text="{
+                            path: 'informacao/CustoRealSemICMS',
+                            type: 'sap.ui.model.odata.type.Decimal',
+                            constraints: {
+                                precision: 16,
+                                scale: 6
+                                }
+                            }" wrapping="true"
+                            visible="{view_tab>/SemICMS}"
+                            />
+
+                    </VBox>
+
+                    <VBox>
+
+                        <Text text="{
+                            path: 'simulacao/VariacaoCustoReal',
+                            type: 'sap.ui.model.odata.type.Decimal',
+                            constraints: {
+                                precision: 12,
+                                scale: 2
+                                }
+                            }" wrapping="true"
+                            />
+
+                        <Text text="{
+                            path: 'simulacao/VariacaoCustoRealSemICMS',
+                            type: 'sap.ui.model.odata.type.Decimal',
+                            constraints: {
+                                precision: 12,
+                                scale: 2
+                                }
+                            }" wrapping="true"
+                            visible="{view_tab>/SemICMS}"
+                            />
+
+                    </VBox>
+
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+
+</core:FragmentDefinition>
+

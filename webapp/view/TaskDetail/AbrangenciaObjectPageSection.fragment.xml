@@ -32,4 +32,15 @@
         </uxap:subSections>
     </uxap:ObjectPageSection>
 
+    <uxap:ObjectPageSection title="Comparativo UF" id="comparativoUFObjectPageSection">
+        <uxap:subSections>
+            <uxap:ObjectPageSubSection title="Comparativo UF" id="comparativoUFSubSection" visible="true">
+                <uxap:blocks>
+                    <core:Fragment fragmentName="simplifique.telaneg.tabela.view.TaskDetail.ComparativoUF" type="XML" />
+                </uxap:blocks>
+            </uxap:ObjectPageSubSection>
+        </uxap:subSections>
+    </uxap:ObjectPageSection>
+
+
 </core:FragmentDefinition>

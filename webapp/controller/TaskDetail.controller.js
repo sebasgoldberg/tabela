@@ -1,5 +1,6 @@
 import formatter from 'simplifique/telaneg/tabela/model/formatter';
 import Controller from "simplifique/telaneg/custos/controller/TaskDetail.controller";
+import JSONModel from "sap/ui/model/json/JSONModel";
 
 export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDetail", {
 
@@ -7,6 +8,9 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
 
     onInit: function(...args) {
         Controller.prototype.onInit.apply(this, ...args);
+        this.getView().setModel(new JSONModel({
+            SemICMS: false,
+        }), 'view_tab');
     },
 
     getNegociacaoSetExpandAttr: function() {
