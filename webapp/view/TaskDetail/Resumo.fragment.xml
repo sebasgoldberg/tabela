@@ -5,7 +5,7 @@
     xmlns:mvc="sap.ui.core.mvc">
 
     <TreeTable
-        id="variacaoCustoTreeTable"
+        id="resumoTreeTable"
         selectionMode="None"
         enableColumnReordering="false"
         expandFirstLevel="false"
@@ -31,7 +31,6 @@
 
                 <m:Button
                     text="Exportar"
-                    id="exportarVariacaoCustoButton"
                     icon="sap-icon://download" iconFirst="true" type="Transparent" press="onExportarVariacaoCusto" />
 
             </m:Toolbar>
@@ -39,17 +38,28 @@
 
         <columns>
 
-
             <Column label="Codigo"
-                width="20%" >
+                width="15%" >
                 <template>
                     <m:Text text="{ItemID}" wrapping="true" />
                 </template>
             </Column>
 
-            <Column label="Descrição" width="45%" >
+            <Column label="Descrição" width="20%" >
                 <template>
                     <m:Text text="{DescricaoItem}" wrapping="true" />
+                </template>
+            </Column>
+
+            <Column label="Recusados" tooltip="Quantidade de itens recusados" hAlign="Right">
+                <template>
+                    <m:Text text="{Recusados}" wrapping="true" />
+                </template>
+            </Column>
+
+            <Column label="Aprovados" tooltip="Quantidade de itens recusados" hAlign="Right">
+                <template>
+                    <m:Text text="{Aprovados}" wrapping="true" />
                 </template>
             </Column>
 
@@ -75,9 +85,55 @@
                 </template>
             </Column>
 
+            <Column label="Mg PDV At." tooltip="Margem PDV Atual [%]" hAlign="Right">
+                <template>
+                   <m:Text text="{
+                        path: 'MargemPDVAtual',
+                        type: 'sap.ui.model.odata.type.Decimal',
+                        constraints: { scale: 3 }
+                        }" wrapping="true"
+                        />
+                </template>
+            </Column>
+
+            <Column label="Mg PDV Nv." tooltip="Margem PDV Nova [%]" hAlign="Right">
+                <template>
+                   <m:Text text="{
+                        path: 'MargemPDVSimulado',
+                        type: 'sap.ui.model.odata.type.Decimal',
+                        constraints: { scale: 3 }
+                        }" wrapping="true"
+                        />
+                </template>
+            </Column>
+
+            <Column label="IC Atual" tooltip="Indice de Competitividade Atual [%]" hAlign="Right">
+                <template>
+                   <m:Text text="{
+                        path: 'ICAtual',
+                        type: 'sap.ui.model.odata.type.Decimal',
+                        constraints: { scale: 3 }
+                        }" wrapping="true"
+                        />
+                </template>
+            </Column>
+
+            <Column label="IC Novo" tooltip="Indice de Competitividade Novo [%]" hAlign="Right">
+                <template>
+                   <m:Text text="{
+                        path: 'ICSimulado',
+                        type: 'sap.ui.model.odata.type.Decimal',
+                        constraints: { scale: 3 }
+                        }" wrapping="true"
+                        />
+                </template>
+            </Column>
+
+
         </columns>
 
     </TreeTable> 
  
 </core:FragmentDefinition>
+
 

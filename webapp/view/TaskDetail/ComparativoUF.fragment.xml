@@ -1,6 +1,7 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" >
 
     <Table 
+    class="tabelaItens"
     keyboardMode="Edit"
     alternateRowColors="true"
     showSeparators="All"
@@ -44,7 +45,7 @@
                 <footer/>
             </Column>
 
-            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="false" popinDisplay="Inline" mergeDuplicates="false">
+            <Column width="20%" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="false" popinDisplay="Inline" mergeDuplicates="false">
                 <header>
                     <Text text="Descrição" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
                 </header>
@@ -65,14 +66,14 @@
                 <footer/>
             </Column>
 
-            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+            <Column width="20%" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
                 <header>
                     <Text text="Grupo" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
                 </header>
                 <footer/>
             </Column>
 
-            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+            <Column width="6%" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
                 <header>
                     <Text text="UF" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
                 </header>
@@ -102,7 +103,7 @@
 
         </columns>
         <items>
-            <ColumnListItem>
+            <ColumnListItem item="{item}">
                 <cells>
 
                     <Text text="{

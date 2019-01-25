@@ -5,10 +5,7 @@
     xmlns:mvc="sap.ui.core.mvc"
     >
 
-                <Column label="{
-                    parts: [ {path: 'tipoNegociacao/ID'}, {path: 'TipoAbrangencia'} ],
-                    formatter: '.formatter.formatDescricaoItemOrg'
-                    }"
+                <Column label="UF"
                     width="12%" >
                     <template>
                         <m:HBox>
@@ -318,6 +315,7 @@
                     </template>
                 </Column>
 
+                <!--
                 <Column label="Custo Bruto"
                     id="custoBrutoEditavelColumn"
                     tooltip="Custo Bruto [BRL]"
@@ -425,6 +423,7 @@
 
                     </template>
                 </Column>
+                -->
 
 
 </core:FragmentDefinition>

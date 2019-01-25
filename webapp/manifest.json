@@ -59,6 +59,11 @@
                         }
                     },
                     "simplifique.telaneg.base.view.TaskDetail": {
+                        "HeaderContentAdditionalStatus": {
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "simplifique.telaneg.tabela.view.TaskDetail.HeaderContentAdditionalStatus",
+                            "type": "XML"
+                        },
                         "Actions": {
                             "className": "sap.ui.core.Fragment",
                             "fragmentName": "simplifique.telaneg.tabela.view.TaskDetail.Actions",
@@ -72,6 +77,11 @@
                         "AbrangenciaObjectPageSection": {
                             "className": "sap.ui.core.Fragment",
                             "fragmentName": "simplifique.telaneg.tabela.view.TaskDetail.AbrangenciaObjectPageSection",
+                            "type": "XML"
+                        },
+                        "MercadoriasObjectPageSection": {
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "simplifique.telaneg.tabela.view.TaskDetail.MercadoriasObjectPageSection",
                             "type": "XML"
                         },
                         "ContratoObjectPageSection": {

@@ -1,0 +1,26 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form"
+    xmlns:uxap="sap.uxap"
+    >
+
+    <uxap:ObjectPageSection id="itemsObjectPageSection" title="Análises e Decisão">
+        <uxap:subSections>
+            <uxap:ObjectPageSubSection id="itemsObjectPageSubSection" title="Análises e Decisão">
+                <uxap:blocks>
+                    <core:Fragment fragmentName="simplifique.telaneg.base.view.ItemsNegociacao" type="XML" />
+                </uxap:blocks>
+            </uxap:ObjectPageSubSection>
+        </uxap:subSections>
+    </uxap:ObjectPageSection>
+
+    <uxap:ObjectPageSection id="resumoObjectPageSection" title="Resumo">
+        <uxap:subSections>
+            <uxap:ObjectPageSubSection id="resumoObjectPageSubSection" title="Resumo">
+                <uxap:blocks>
+                    <core:Fragment fragmentName="simplifique.telaneg.tabela.view.TaskDetail.Resumo" type="XML" />
+                </uxap:blocks>
+            </uxap:ObjectPageSubSection>
+        </uxap:subSections>
+    </uxap:ObjectPageSection>
+
+</core:FragmentDefinition>
+

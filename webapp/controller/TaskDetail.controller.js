@@ -14,7 +14,7 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
     },
 
     getNegociacaoSetExpandAttr: function() {
-        return 'tipoNegociacao,fornecedor,status,bandeira,comentarioImpressao';
+        return 'tipoNegociacao,fornecedor,status,bandeira,comentarioImpressao,agregacao';
     },
 
     onMostrarAnexos: function(oEvent) {
