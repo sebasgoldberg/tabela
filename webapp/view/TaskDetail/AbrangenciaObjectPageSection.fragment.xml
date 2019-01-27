@@ -2,7 +2,11 @@
     xmlns:uxap="sap.uxap"
     >
 
-    <uxap:ObjectPageSection title="Negociações Geradas" id="negociacoesFilhasObjectPageSection">
+    <uxap:ObjectPageSection title="Negociações Geradas" id="negociacoesFilhasObjectPageSection"
+        visible="{
+            parts: [ {path: 'TipoNegociacao'}, {path: 'Status'} ],
+            formatter: '.formatter.isNegociacoesGeradasVisible'
+            }">
         <uxap:subSections>
             <uxap:ObjectPageSubSection title="Negociações Geradas" id="negociacoesFilhasSubSection" visible="{negociacoesFilhas}">
                 <uxap:blocks>
@@ -12,7 +16,11 @@
         </uxap:subSections>
     </uxap:ObjectPageSection>
 
-    <uxap:ObjectPageSection title="Fornecedores" id="fornecedoresObjectPageSection">
+    <uxap:ObjectPageSection title="Fornecedores" id="fornecedoresObjectPageSection"
+        visible="{
+            parts: [ {path: 'TipoNegociacao'} ],
+            formatter: '.formatter.isTabelaPrincipal'
+            }">
         <uxap:subSections>
             <uxap:ObjectPageSubSection title="Fornecedores" id="fornecedoresAdicionaisSubSection">
                 <uxap:blocks>
@@ -22,7 +30,11 @@
         </uxap:subSections>
     </uxap:ObjectPageSection>
 
-    <uxap:ObjectPageSection title="Variação Custo" id="variacaoCustoObjectPageSection">
+    <uxap:ObjectPageSection title="Variação Custo" id="variacaoCustoObjectPageSection"
+        visible="{
+            parts: [ {path: 'TipoNegociacao'}, {path: 'Status'} ],
+            formatter: '.formatter.isTabelaPrincipalConcluida'
+            }">
         <uxap:subSections>
             <uxap:ObjectPageSubSection title="Variação Custo" id="variacaoCustoSubSection" visible="true">
                 <uxap:blocks>
@@ -32,7 +44,11 @@
         </uxap:subSections>
     </uxap:ObjectPageSection>
 
-    <uxap:ObjectPageSection title="Comparativo UF" id="comparativoUFObjectPageSection">
+    <uxap:ObjectPageSection title="Comparativo UF" id="comparativoUFObjectPageSection"
+        visible="{
+            parts: [ {path: 'TipoNegociacao'}, {path: 'Status'} ],
+            formatter: '.formatter.isTabelaPrincipalConcluida'
+            }">
         <uxap:subSections>
             <uxap:ObjectPageSubSection title="Comparativo UF" id="comparativoUFSubSection" visible="true">
                 <uxap:blocks>

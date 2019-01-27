@@ -12,7 +12,11 @@
         </uxap:subSections>
     </uxap:ObjectPageSection>
 
-    <uxap:ObjectPageSection id="resumoObjectPageSection" title="Resumo">
+    <uxap:ObjectPageSection id="resumoObjectPageSection" title="Resumo"
+        visible="{
+            parts: [ {path: 'TipoNegociacao'}, {path: 'Status'} ],
+            formatter: '.formatter.isTabelaPrincipalConcluida'
+            }">
         <uxap:subSections>
             <uxap:ObjectPageSubSection id="resumoObjectPageSubSection" title="Resumo">
                 <uxap:blocks>

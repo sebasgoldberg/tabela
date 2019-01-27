@@ -59,6 +59,11 @@
                         }
                     },
                     "simplifique.telaneg.base.view.TaskDetail": {
+                        "FooterButtons": {
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "simplifique.telaneg.tabela.view.TaskDetail.FooterButtons",
+                            "type": "XML"
+                        },
                         "HeaderContentAdditionalStatus": {
                             "className": "sap.ui.core.Fragment",
                             "fragmentName": "simplifique.telaneg.tabela.view.TaskDetail.HeaderContentAdditionalStatus",

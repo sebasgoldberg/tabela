@@ -1,0 +1,29 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form">
+
+    <Button text="Eliminar"
+        visible="{view>/isNegociacaoEditavel}"
+        type="Reject"
+        press="onEliminarNegociacao"
+        />
+     <Button text="Salvar"
+        visible="{= ${view>/isNegociacaoEditavel} || ${view>/isNegociacaoEmAnalises} }"
+        type="Emphasized"
+        press="onSave"
+        />
+    <Button text="Concluir" id="concluirButton"
+        visible="{= ${view>/isNegociacaoEditavel} || ${view>/isNegociacaoEmAnalises} }"
+        type="Accept"
+        press="onFinalizar"
+        />
+    <Button text="Aprovar"
+        visible="{view>/isNegociacaoEmAprovacao}"
+        type="Accept"
+        press="onAprovar"
+        />
+    <Button text="Rejeitar"
+        visible="{view>/isNegociacaoEmAprovacao}"
+        type="Reject"
+        press="onRejeitar"
+        />
+
+</core:FragmentDefinition>

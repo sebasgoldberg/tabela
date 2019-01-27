@@ -1,21 +1,29 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form">
 
-	<VBox>
-		<Title text="Var. Custo Subm."/>
-		<ObjectNumber number="{
+    <VBox
+        visible="{
+            parts: [ {path: 'TipoNegociacao'}, {path: 'Status'} ],
+            formatter: '.formatter.isTabelaPrincipalConcluida'
+            }">
+        <Title text="Var. Custo Subm."/>
+        <ObjectNumber number="{
                         path: 'agregacao/VariacaoCustoGeral',
                         type: 'sap.ui.model.odata.type.Decimal',
                         constraints: { scale: 3 }
                         }" unit="%" state="Error"/>
-	</VBox>
+    </VBox>
 
-	<VBox>
-		<Title text="Var. Custo Aprov."/>
-		<ObjectNumber number="{
+    <VBox
+        visible="{
+            parts: [ {path: 'TipoNegociacao'}, {path: 'Status'} ],
+            formatter: '.formatter.isTabelaPrincipalConcluida'
+            }">
+        <Title text="Var. Custo Aprov."/>
+        <ObjectNumber number="{
                         path: 'agregacao/VariacaoCustoAprovado',
                         type: 'sap.ui.model.odata.type.Decimal',
                         constraints: { scale: 3 }
                         }" unit="%" state="Warning"/>
-	</VBox>
+    </VBox>
 
 </core:FragmentDefinition>

@@ -129,7 +129,7 @@
                                 }"
                                 change="onChangeReplicarEmFilhos"
                                 submit="onSubmit"
-                                enabled="{view>/isNegociacaoEditavel}"
+                                enabled="{view>/isNegociacaoEmAnalises}"
                                 id="precoVendaEdit"
                                 maxLength="16"
                                 textAlign="Right"
@@ -312,6 +312,18 @@
                             visible="{= !${IsGenerico} }"
                             />
                         </m:HBox>
+                    </template>
+                </Column>
+
+                <Column id="aprovacaoColumn" label="Aprov." width="7%">
+                    <template>
+                        <m:Switch type="AcceptReject" state="{Aprovado}"
+                            enabled="{view>/isNegociacaoEmAnalises}"
+                            visible="{
+                                parts: [ {path: 'Pai'} ],
+                                formatter: '.formatter.isAprovacaoItemVisible'
+                                }"
+                            />
                     </template>
                 </Column>
 

@@ -21,5 +21,33 @@ export default Object.assign({}, formatter, {
         return ValueState.None;
     },
 
+    isTabelaPrincipal: function(sTipoNegociacao) {
+        return ( sTipoNegociacao === 'B' );
+    },
+
+    isNegociacoesGeradasVisible: function(sTipoNegociacao, sStatus) {
+        // Exibição das negociações geradas só para a tabela principal,
+        // uma vez que foi concluida.
+        return ( sTipoNegociacao === 'B' && sStatus !== '' );
+    },
+
+    isTabelaPrincipalConcluida: function(sTipoNegociacao, sStatus) {
+        // Não será exibida a seção de variação de custo no casso que
+        // a negociação seja a principal e ainda não fosse concluida.
+        return !( sTipoNegociacao === 'B' && sStatus === '' );
+    },
+
+    isAprovacaoItemVisible: function(iPai) {
+        return ( iPai === 0 );
+    },
+
+    isAprovacaoEnabled: function(sTipoNegociacao, sStatus) {
+        let bc = this.getView().getBindingContext()
+        if (!bc)
+            return false;
+        let oNegociacao = bc.getObject();
+        return ( oNegociacao.TipoNegociacao === 'A' );
+    },
+
 });
 

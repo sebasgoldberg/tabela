@@ -101,6 +101,13 @@
                 <footer/>
             </Column>
 
+            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                <header>
+                    <Text text="Aprov." width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+                </header>
+                <footer/>
+            </Column>
+
         </columns>
         <items>
             <ColumnListItem item="{item}">
@@ -195,6 +202,14 @@
                             />
 
                     </VBox>
+
+                    <Switch type="AcceptReject" state="{Aprovado}"
+                        enabled="{view>/isNegociacaoEmAnalises}"
+                        visible="{
+                            parts: [ {path: 'Pai'} ],
+                            formatter: '.formatter.isAprovacaoItemVisible'
+                            }"
+                        />
 
                 </cells>
             </ColumnListItem>
