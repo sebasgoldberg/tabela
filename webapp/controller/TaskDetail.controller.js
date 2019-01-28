@@ -57,6 +57,51 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
         this.navTo('TaskDetail', {negociacaoID: sNegociacaoID});
     },
 
-});
+    onEnviarTabela: function() {
+        return this.changeStatusNegociacao({
+            temCertezaOptions: {
+                pergunta: "Tem certeza que deseja enviar a tabela para analises?",
+                titulo: "Enviar Tabela Para Analises",
+            },
+            successMessage: "Tabela enviada para analises realizado com sucesso.",
+            errorMessage: "Aconteceram erros ao tentar enviar a tabela para analises."
+            });
+    },
 
+    onEnviarParaAprovacao: function() {
+        return this.changeStatusNegociacao({
+            temCertezaOptions: {
+                pergunta: "Tem certeza que deseja enviar a tabela para aprovação?",
+                titulo: "Enviar Tabela Para Aprovação",
+            },
+            successMessage: "Tabela enviada para aprovação realizado com sucesso.",
+            errorMessage: "Aconteceram erros ao tentar enviar a tabela para aprovação."
+            });
+    },
+
+    onAprovar: function() {
+        return this.changeStatusNegociacao({
+            temCertezaOptions: {
+                pergunta: "Tem certeza que deseja aprovar a tabela?",
+                titulo: "Aprovar Tabela",
+            },
+            functionImportPath: '/AprovarNegociacao',
+            successMessage: "Tabela aprovada com sucesso.",
+            errorMessage: "Aconteceram erros ao tentar aprovar a tabela.",
+            });
+    },
+
+    onRejeitar: function() {
+        return this.changeStatusNegociacao({
+            temCertezaOptions: {
+                pergunta: "Tem certeza que deseja rejeitar a tabela?",
+                titulo: "Rejeitar Tabela",
+            },
+            functionImportPath: '/RejeitarNegociacao',
+            successMessage: "Tabela rejeitada com sucesso.",
+            errorMessage: "Aconteceram erros ao tentar rejeitar a tabela."
+            });
+    },
+
+});
 

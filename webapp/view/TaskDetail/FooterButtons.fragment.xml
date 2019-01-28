@@ -10,10 +10,15 @@
         type="Emphasized"
         press="onSave"
         />
-    <Button text="Concluir" id="concluirButton"
-        visible="{= ${view>/isNegociacaoEditavel} || ${view>/isNegociacaoEmAnalises} }"
+    <Button text="Enviar Tabela"
+        visible="{view>/isNegociacaoEditavel}"
         type="Accept"
-        press="onFinalizar"
+        press="onEnviarTabela"
+        />
+    <Button text="Concluir Analises"
+        visible="{view>/isNegociacaoEmAnalises}"
+        type="Accept"
+        press="onEnviarParaAprovacao"
         />
     <Button text="Aprovar"
         visible="{view>/isNegociacaoEmAprovacao}"
