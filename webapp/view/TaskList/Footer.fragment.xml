@@ -1,0 +1,26 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form">
+	<OverflowToolbar visible="{= ${ID} === 'B' || ${message>/}.length > 0 }">
+		<Button
+			icon="sap-icon://message-popup"
+			text="{= ${message>/}.length }"
+			visible="{= ${message>/}.length > 0 }"
+			type="Reject"
+			press="handleMessagePopoverPress"/>
+
+		<ToolbarSpacer/>
+
+		<Button text="Copiar" icon="sap-icon://add-coursebook" press="onCopiarSelecionados"
+			tooltip="Criar uma nova negociação com cópia de uma selecionada."
+            visible="{= ${ID} === 'B'}"/>
+
+		<Button id="novoAcordoButton"
+            text="{
+                    parts: [ {path: 'ID'} ],
+                    formatter: '.formatter.botaoNovoLabel'
+                    }"
+            icon="sap-icon://add" type="Emphasized" press="onCriarAcordo" visible="{= ${ID} === 'B'}"/>
+
+		<Button icon="sap-icon://delete" press="onDeleteSelecionados" visible="{= ${ID} === 'B'}"/>
+
+	</OverflowToolbar>
+</core:FragmentDefinition>

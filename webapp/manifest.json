@@ -37,6 +37,11 @@
             "extensions": {
                 "sap.ui.viewExtensions": {
                     "simplifique.telaneg.base.view.TaskList": {
+                        "Footer": {
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "simplifique.telaneg.tabela.view.TaskList.Footer",
+                            "type": "XML"
+                        },
                         "MoreFilterItems": {
                             "className": "sap.ui.core.Fragment",
                             "fragmentName": "simplifique.telaneg.tabela.view.TaskList.MoreFilterItems",
