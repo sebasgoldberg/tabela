@@ -19,5 +19,34 @@
         </fb:control>
     </fb:FilterItem>
 
+    <fb:FilterItem label="Seção" name="secaoFilter" id="secaoFilter"
+        visible="{= ${ID} === 'A' }"
+        >
+        <fb:control>
+
+            <MultiInput
+                placeholder="Digitar Codigo ou Descrição"
+                tokenUpdate="onTokenUpdate"
+                submit="onSearch"
+                id="multiInputSecao"
+                enableMultiLineMode="true"
+                suggest=""
+                suggestionItems="{/SecaoSet}"
+                maxSuggestionWidth="500px"
+                showValueHelp="false"
+                tokens="{/SecoesPossiveisUsuarioSet}"
+                >
+
+                <tokens>
+                    <Token key="{ID}" text="{ID} {Descricao}" />
+                </tokens>
+
+                <core:ListItem key="{ID}" text="{ID} {Descricao}"
+                   />
+            </MultiInput>
+
+        </fb:control>
+    </fb:FilterItem>
+
    
 </core:FragmentDefinition>

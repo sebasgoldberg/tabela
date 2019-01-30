@@ -19,7 +19,16 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskList
             },
         }), 'tabelaView');
 
+    },
 
+    filtrarPorUsuario: function() {
+        let v = this.getView();
+        let oTipoNegociacao = v.getBindingContext().getObject();
+        // Em caso de ser a tabela de analises.
+        if (oTipoNegociacao.ID === 'A')
+            // É eliminada a inicialização do filtro de usuario.
+            return;
+        Controller.prototype.filtrarPorUsuario.apply(this);
     },
 
     clearDataEnvioDateRangeSelection: function(oEvent) {
@@ -36,6 +45,14 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskList
 
         if (filter.dataEnvioDe)
             aFilters.push(new Filter('Vencimento', FilterOperator.BT, filter.dataEnvioDe, filter.dataEnvioAte));
+
+        let oTipoNegociacao = v.getBindingContext().getObject();
+        // Em caso de ser a tabela de analises aplicamos o filtro por Seção
+        if (oTipoNegociacao.ID === 'A'){
+            let oMultiInputSecao = v.byId('multiInputSecao');
+            oMultiInputSecao.getTokens().map( oToken =>
+                aFilters.push(new Filter('SubconjuntoPai', FilterOperator.EQ, oToken.getKey() )));
+        }
 
         return aFilters;
     },
