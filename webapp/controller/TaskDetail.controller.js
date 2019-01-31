@@ -1,6 +1,8 @@
 import formatter from 'simplifique/telaneg/tabela/model/formatter';
 import Controller from "simplifique/telaneg/custos/controller/TaskDetail.controller";
 import JSONModel from "sap/ui/model/json/JSONModel";
+import FilterType from 'sap/ui/model/FilterType';
+
 
 export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDetail", {
 
@@ -32,6 +34,7 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
         let bEliminacaoRealizada = await Controller.prototype.onDeleteFornecedorAdicional.apply(this, oEvent);
         if (bEliminacaoRealizada){
             this.refreshItems();
+            this.refreshItemsFilters();
             this.refreshVariacaoCusto();
         }
     },
@@ -40,6 +43,7 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
         let bAdicaoRealizada = await Controller.prototype.onAddFornecedorAdicional.apply(this, oEvent);
         if (bAdicaoRealizada){
             this.refreshItems();
+            this.refreshItemsFilters();
             this.refreshVariacaoCusto();
         }
     },
@@ -54,6 +58,11 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
     onNavigateToNegociacaoFilha: function(oEvent) {
         let oListItem = oEvent.getParameter('listItem');
         let sNegociacaoID = oListItem.getBindingContext().getObject().ID;
+        this.navTo('TaskDetail', {negociacaoID: sNegociacaoID});
+    },
+
+    onNavigatePai: function(oEvent) {
+        let sNegociacaoID = this.getView().getBindingContext().getObject().Pai;
         this.navTo('TaskDetail', {negociacaoID: sNegociacaoID});
     },
 
@@ -102,6 +111,17 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
             errorMessage: "Aconteceram erros ao tentar rejeitar a tabela."
             });
     },
+
+    onEliminarItensSelecionados: async function() {
+        await Controller.prototype.onEliminarItensSelecionados.apply(this);
+        this.refreshItemsFilters();
+    },
+
+    setItemsFilters: function(aFilters) {
+        Controller.prototype.setItemsFilters.apply(this, aFilters);
+        this.getView().byId('ComparativoUFTable').getBinding('items').filter(aFilters, FilterType.Application);
+    },
+
 
 });
 

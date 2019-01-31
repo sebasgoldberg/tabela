@@ -1,9 +1,37 @@
-<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form">
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form" xmlns:sim="simplifique.telaneg.base.control">
+
+    <core:Fragment fragmentName="simplifique.telaneg.base.view.ItemsNegociacao.FilterAndOrder" type="XML" />
 
     <Button text="" icon="{
         parts: [ {path: 'view_ext>/ExibirInformacoesAtuaisItems'} ],
         formatter: '.formatter.exibirInformacoesAtuaisItemsButtonIcon'
         }" iconFirst="false" type="Transparent" press="onExibirInformacoesAtuais" />
+
+    <HBox
+        visible="{view>/isNegociacaoEmAnalises}"
+        >
+
+        <Button text="Solicitar Pesquisa" icon="sap-icon://detail-view"
+            iconFirst="false" type="Transparent"
+            press="onDisplayItemsSorting" />
+
+        <Button text="Atualizar IC" icon="sap-icon://refresh"
+            iconFirst="false" type="Transparent"
+            press="onAtualizarIC" />
+
+        <Button text="Aprovar" icon="sap-icon://accept"
+            iconFirst="false" type="Transparent"
+            press="onAprovarItems" />
+
+        <Button text="Recusar" icon="sap-icon://decline"
+            iconFirst="false" type="Transparent"
+            press="onRecusarItems" />
+
+   </HBox>
+
+    <Button
+        text="Exportar"
+        icon="sap-icon://download" iconFirst="true" type="Transparent" press="onExportarItems" />
 
     <Button
         visible="{view>/isNegociacaoEditavel}"

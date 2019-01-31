@@ -135,6 +135,18 @@
             <form:FormContainer title="">
                 <form:formElements>
 
+                    <form:FormElement visible="{= ${TipoNegociacao} === 'A' }">
+                        <form:label>
+                            <Label text="Tabela Principal"/>
+                        </form:label>
+                        <form:fields>
+                            <Link
+                                text="{Pai}"
+                                press="onNavigatePai"/>
+                        </form:fields>
+                    </form:FormElement>
+
+
                     <form:FormElement>
                         <form:label>
                             <Label text="Motivo"/>

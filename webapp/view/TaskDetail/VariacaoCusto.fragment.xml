@@ -29,12 +29,10 @@
             <m:Toolbar>
                 <m:ToolbarSpacer/>
 
-                <!--
                 <m:Button
                     text="Exportar"
                     id="exportarVariacaoCustoButton"
                     icon="sap-icon://download" iconFirst="true" type="Transparent" press="onExportarVariacaoCusto" />
-                -->
 
             </m:Toolbar>
         </toolbar>

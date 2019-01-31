@@ -49,5 +49,9 @@ export default Object.assign({}, formatter, {
         return ( oNegociacao.TipoNegociacao === 'A' );
     },
 
+    formatDescricaoItemOrg: function(sNegociacaoID, sTipoAbrangencia){
+        return 'UF';
+    },
+
 });
 

@@ -21,6 +21,7 @@ export default AnexosBaseDialog.extend("simplifique.telaneg.tabela.controller.Ta
     onUploadComplete: function() {
         AnexosBaseDialog.prototype.onUploadComplete.apply(this);
         this._callerController.refreshItems();
+        this._callerController.refreshItemsFilters();
         this._callerController.refreshFornecedores();
         this._callerController.refreshVariacaoCusto();
     },
