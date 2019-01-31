@@ -13,7 +13,7 @@
 
         <Button text="Solicitar Pesquisa" icon="sap-icon://detail-view"
             iconFirst="false" type="Transparent"
-            press="onDisplayItemsSorting" />
+            press="onSolicitarPesquisa" />
 
         <Button text="Atualizar IC" icon="sap-icon://refresh"
             iconFirst="false" type="Transparent"

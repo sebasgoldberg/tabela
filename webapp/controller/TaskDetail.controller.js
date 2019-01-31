@@ -122,6 +122,43 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
         this.getView().byId('ComparativoUFTable').getBinding('items').filter(aFilters, FilterType.Application);
     },
 
+    onSolicitarPesquisa: function(oEvent) {
+        let v = this.getView();
+
+        let oNegociacao = v.getBindingContext().getObject();
+
+        // Sugerimos o assunto
+        this.getModel('mail').setProperty('/assunto',`Solicitação Pesquisa Preço - Items Negociação ${oNegociacao.ID}`);
+
+        // Sugerimos o corpo
+        let oTree = this.getView().byId('treeTable');
+        let sHtmlRowsItemsSelecionados = oTree.getSelectedIndices()
+            .map( index => oTree.getContextByIndex(index) )
+            .map( bc => bc.getObject() )
+            .reduce( (sHtml, oItem) => `${sHtml}
+                <tr>
+                    <td>${oItem.OrgID}</td>
+                    <td>${oItem.FornecedorID}</td>
+                    <td>${oItem.MaterialID}</td>
+                </tr>
+                `, '');
+        this.getModel('mail').setProperty('/corpo',`
+            <p>Estimado(s),</p>
+            <p>Solicitamos por favor a pesquisa de preço de venda dos seguintes items associados a negociação ${oNegociacao.ID}</p>
+            <table>
+                <tr>
+                    <th>UF</th>
+                    <th>Fornecedor</th>
+                    <th>Material</th>
+                </tr>
+                ${sHtmlRowsItemsSelecionados}
+            </table>
+            <p>Agradeço desde já sua colaboração.</p>
+            <p>Att.</p>
+        `);
+        
+        this.onEnviarEmail();
+    },
 
 });
 
