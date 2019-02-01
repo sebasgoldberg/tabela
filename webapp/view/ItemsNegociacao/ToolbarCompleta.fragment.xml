@@ -1,6 +1,6 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form" xmlns:sim="simplifique.telaneg.base.control">
 
-    <core:Fragment fragmentName="simplifique.telaneg.base.view.ItemsNegociacao.FilterAndOrder" type="XML" />
+    <core:Fragment fragmentName="simplifique.telaneg.base.view.ItemsNegociacao.Filter" type="XML" />
 
     <Button text="" icon="{
         parts: [ {path: 'view_ext>/ExibirInformacoesAtuaisItems'} ],

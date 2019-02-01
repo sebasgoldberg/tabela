@@ -119,7 +119,7 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
     },
 
     setItemsFilters: function(aFilters) {
-        Controller.prototype.setItemsFilters.apply(this, aFilters);
+        Controller.prototype.setItemsFilters.call(this, aFilters);
         this.getView().byId('ComparativoUFTable').getBinding('items').filter(aFilters, FilterType.Application);
     },
 
