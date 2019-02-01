@@ -148,8 +148,10 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
                 </tr>
                 `, '');
 
-        if (!sHtmlRowsItemsSelecionados)
-            MessageToast.show('Deve selecionar os itens nos quais aplicaria a pesquisa.')
+        if (!sHtmlRowsItemsSelecionados){
+            MessageToast.show('Deve selecionar os itens nos quais aplicaria a pesquisa.');
+            return;
+        }
 
         this.getModel('mail').setProperty('/corpo',`
             <p>Estimado(s),</p>
@@ -181,6 +183,12 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
         
     },
 
+    onAtualizarIC: function(oEvent) {
+        this.simularItemsSelecionados({
+            successMessage: 'Atualização de IC realizada para os itens selecionados.',
+            errorMessage: 'Aconteceu um erro ao tentar atualizar o IC dos itens selecionados.',
+            });
+    },
 
 });
 
