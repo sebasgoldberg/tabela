@@ -6,7 +6,9 @@
     >
 
                 <Column label="UF"
-                    width="12%" >
+                    width="12%"
+                    sortProperty="OrgID"
+                    >
                     <template>
                         <m:HBox>
                         <core:Icon
@@ -25,7 +27,10 @@
                     </template>
                 </Column>
 
-                <Column label="Fornecedor" width="9%">
+                <Column label="Fornecedor"
+                    width="9%"
+                    sortProperty="FornecedorID"
+                    >
                     <template>
                         <m:Text text="{FornecedorID}" wrapping="true" />
                     </template>
@@ -34,7 +39,9 @@
                 <Column label="{
                     parts: [ {path: 'tipoNegociacao/ID'}, {path: 'TipoItemMercID'} ],
                     formatter: '.formatter.formatDescricaoItemMerc'
-                    }" width="7%" >
+                    }" width="7%"
+                    sortProperty="MaterialID"
+                    >
                     <template>
                         <m:Text text="{
                             parts: [ {path: 'itemMerc/ID'}, {path: 'itemMerc/Type'} ],

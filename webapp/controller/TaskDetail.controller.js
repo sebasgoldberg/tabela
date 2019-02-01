@@ -2,6 +2,7 @@ import formatter from 'simplifique/telaneg/tabela/model/formatter';
 import Controller from "simplifique/telaneg/custos/controller/TaskDetail.controller";
 import JSONModel from "sap/ui/model/json/JSONModel";
 import FilterType from 'sap/ui/model/FilterType';
+import MessageToast from 'sap/m/MessageToast';
 
 
 export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDetail", {
@@ -123,6 +124,7 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
     },
 
     onSolicitarPesquisa: function(oEvent) {
+
         let v = this.getView();
 
         let oNegociacao = v.getBindingContext().getObject();
@@ -145,6 +147,10 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
                     <td ${sCellStyle}>${oItem.MaterialID}</td>
                 </tr>
                 `, '');
+
+        if (!sHtmlRowsItemsSelecionados)
+            MessageToast.show('Deve selecionar os itens nos quais aplicaria a pesquisa.')
+
         this.getModel('mail').setProperty('/corpo',`
             <p>Estimado(s),</p>
             <p>Solicitamos por favor a pesquisa de preço de venda dos seguintes items associados a negociação ${oNegociacao.ID}</p>
@@ -163,6 +169,18 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
         
         this.onEnviarEmail();
     },
+
+    doSortItemsNegociacao: function(aSorters) {
+
+        Controller.prototype.doSortItemsNegociacao.apply(this, aSorters);
+        this
+            .getView()
+            .byId('ComparativoUFTable')
+            .getBinding("items")
+            .sort(aSorters);
+        
+    },
+
 
 });
 
