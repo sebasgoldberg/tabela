@@ -132,24 +132,28 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
 
         // Sugerimos o corpo
         let oTree = this.getView().byId('treeTable');
+        let sBorder = "border: 1px solid black;";
+        let sTableStyle = `style="margin: 1em; ${sBorder}"`
+        let sCellStyle = `style="padding: 5px; ${sBorder}"`;
         let sHtmlRowsItemsSelecionados = oTree.getSelectedIndices()
             .map( index => oTree.getContextByIndex(index) )
             .map( bc => bc.getObject() )
             .reduce( (sHtml, oItem) => `${sHtml}
                 <tr>
-                    <td>${oItem.OrgID}</td>
-                    <td>${oItem.FornecedorID}</td>
-                    <td>${oItem.MaterialID}</td>
+                    <td ${sCellStyle}>${oItem.OrgID}</td>
+                    <td ${sCellStyle}>${oItem.FornecedorID}</td>
+                    <td ${sCellStyle}>${oItem.MaterialID}</td>
                 </tr>
                 `, '');
         this.getModel('mail').setProperty('/corpo',`
             <p>Estimado(s),</p>
             <p>Solicitamos por favor a pesquisa de preço de venda dos seguintes items associados a negociação ${oNegociacao.ID}</p>
-            <table>
+            <p>
+            <table ${sTableStyle}>
                 <tr>
-                    <th>UF</th>
-                    <th>Fornecedor</th>
-                    <th>Material</th>
+                    <th ${sCellStyle}>UF</th>
+                    <th ${sCellStyle}>Fornecedor</th>
+                    <th ${sCellStyle}>Material</th>
                 </tr>
                 ${sHtmlRowsItemsSelecionados}
             </table>
