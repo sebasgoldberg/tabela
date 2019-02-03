@@ -190,5 +190,17 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
             });
     },
 
+    onExportarVariacaoCusto: function(oEvent) {
+        this.onGetAgregacaoExportada(oEvent);
+    },
+
+    onExportarResumo: function(oEvent) {
+        this.onGetAgregacaoExportada(oEvent);
+    },
+
+    onExportarItems: function(oEvent) {
+        this.onGetItemsExportados(oEvent);
+    },
+
 });
 
