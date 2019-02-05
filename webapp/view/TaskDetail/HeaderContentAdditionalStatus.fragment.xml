@@ -5,7 +5,8 @@
             parts: [ {path: 'TipoNegociacao'}, {path: 'Status'} ],
             formatter: '.formatter.isTabelaPrincipalConcluida'
             }">
-        <Title text="Var. Custo Subm."/>
+        <Text text="Variação Custo"/>
+        <Text text="Submetido"/>
         <ObjectNumber number="{
                         path: 'agregacao/VariacaoCustoGeral',
                         type: 'sap.ui.model.odata.type.Decimal',
@@ -18,7 +19,8 @@
             parts: [ {path: 'TipoNegociacao'}, {path: 'Status'} ],
             formatter: '.formatter.isTabelaPrincipalConcluida'
             }">
-        <Title text="Var. Custo Aprov."/>
+        <Text text="Variação Custo"/>
+        <Text text="Aprovado"/>
         <ObjectNumber number="{
                         path: 'agregacao/VariacaoCustoAprovado',
                         type: 'sap.ui.model.odata.type.Decimal',

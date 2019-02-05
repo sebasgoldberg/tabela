@@ -78,6 +78,18 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
             });
     },
 
+    onIniciarAnalises: function() {
+        return this.changeStatusNegociacao({
+            temCertezaOptions: {
+                pergunta: "Tem certeza que deseja iniciar o analises?",
+                titulo: "Iniciar Analises",
+            },
+            functionImportPath: '/IniciarAnalises',
+            successMessage: "Tarefas de inicio de analises realizadas com sucesso.",
+            errorMessage: "Aconteceram erros ao tentar executar as tarefas de inicio de analises."
+            });
+    },
+
     onEnviarParaAprovacao: function() {
         return this.changeStatusNegociacao({
             temCertezaOptions: {

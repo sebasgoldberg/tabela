@@ -1,7 +1,7 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form">
     <Button
         id="anexosNegociacaoButton"
-        visible="{view>/isNegociacaoEditavel}"
+        visible="{= ${view>/isNegociacaoEditavel} &amp;&amp; ${Origem} === 'F' }"
         text="Importar Tabela" icon="sap-icon://attachment" press="onMostrarAnexos">
         <layoutData>
             <OverflowToolbarLayoutData moveToOverflow="true"/>

@@ -100,7 +100,14 @@
                             "type": "XML"
                         }
                     },
-                    "simplifique.telaneg.base.view.ItemsNegociacao": {
+                    "simplifique.telaneg.base.view.FornecedoresAdicionais": {
+                        "HeaderToolbar": {
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "simplifique.telaneg.tabela.view.FornecedoresAdicionais.HeaderToolbar",
+                            "type": "XML"
+                        }
+                    },
+                     "simplifique.telaneg.base.view.ItemsNegociacao": {
                         "ToolbarCompleta": {
                             "className": "sap.ui.core.Fragment",
                             "fragmentName": "simplifique.telaneg.tabela.view.ItemsNegociacao.ToolbarCompleta",

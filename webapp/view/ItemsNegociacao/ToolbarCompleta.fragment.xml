@@ -8,7 +8,7 @@
         }" iconFirst="false" type="Transparent" press="onExibirInformacoesAtuais" />
 
     <HBox
-        visible="{view>/isNegociacaoEmAnalises}"
+        visible="{= ${view>/isNegociacaoEmAnalises} &amp;&amp; ${TipoNegociacao} === 'A' }"
         >
 
         <Button text="Solicitar Pesquisa" icon="sap-icon://detail-view"
@@ -34,7 +34,7 @@
         icon="sap-icon://download" iconFirst="true" type="Transparent" press="onExportarItems" />
 
     <Button
-        visible="{view>/isNegociacaoEditavel}"
+        visible="{= ${view>/isNegociacaoEditavel} &amp;&amp; ${Origem} === 'F' }"
         id="removeItemButton"
         text="" icon="sap-icon://delete" iconFirst="false" type="Transparent" press="onEliminarItensSelecionados" />
 

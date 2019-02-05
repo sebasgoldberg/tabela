@@ -1,0 +1,22 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form">
+
+<Toolbar width="auto" height="46px" design="Transparent" enabled="true"
+    visible="{= ${view>/isNegociacaoEditavel} &amp;&amp; ${Origem} === 'F' }"
+    >
+
+    <content>
+        <ToolbarSpacer width=""/>
+        <Button
+            visible="{view>/isNegociacaoEditavel}"
+            id="addFornecedorAdicionalButton"
+            icon="sap-icon://add" press="onAddFornecedorAdicional"/>
+        <Button
+            visible="{view>/isNegociacaoEditavel}"
+            id="removeFornecedorAdicionalButton"
+            icon="sap-icon://delete" press="onDeleteFornecedorAdicional"/>
+    </content>
+    <tooltip/>
+</Toolbar>
+
+</core:FragmentDefinition>
+

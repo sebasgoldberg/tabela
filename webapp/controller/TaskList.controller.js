@@ -47,6 +47,7 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskList
             aFilters.push(new Filter('Vencimento', FilterOperator.BT, filter.dataEnvioDe, filter.dataEnvioAte));
 
         let oTipoNegociacao = v.getBindingContext().getObject();
+
         // Em caso de ser a tabela de analises aplicamos o filtro por Seção
         if (oTipoNegociacao.ID === 'A'){
             let oMultiInputSecao = v.byId('multiInputSecao');
