@@ -16,7 +16,7 @@
                                 submit="onSubmit"
                                 liveChange="onLiveChangeDescricao"
                                 id="descricaoNegociacaoInput"
-                                enabled="{view>/isNegociacaoEditavel}"
+                                enabled="{= ${view>/isNegociacaoEditavel} &amp;&amp; ${Origem} === 'F' }"
                                 value="{
                                     path: 'Descricao',
                                     type: 'sap.ui.model.odata.type.String',
@@ -32,7 +32,7 @@
                         <form:fields>
                             <ComboBox
                                 placeholder="Selecione a bandeira"
-                                enabled="{view>/isNegociacaoEditavel}"
+                                enabled="{= ${view>/isNegociacaoEditavel} &amp;&amp; ${Origem} === 'F' }"
                                 id="bandeiraNegociacaoComboBox"
                                 selectedKey="{Bandeira}"
                                 items="{/BandeiraSet}"
@@ -73,7 +73,7 @@
                         <form:fields>
                             <Input
                                 placeholder="Codigo/Desc."
-                                enabled="{view>/isNegociacaoEditavel}"
+                                enabled="{= ${view>/isNegociacaoEditavel} &amp;&amp; ${Origem} === 'F' }"
                                 id="fornecedorNegociacaoInput"
                                 required="false"
                                 value="{FornecedorID}" 
@@ -116,7 +116,7 @@
                         <form:fields>
                             <DatePicker
                                 id="VigenciaTabelaDatePicker"
-                                enabled="{view>/isNegociacaoEditavel}"
+                                enabled="{= ${view>/isNegociacaoEditavel} &amp;&amp; ${Origem} === 'F' }"
                                 value="{
                                         path:'ApuracaoDe', 
                                         type:'sap.ui.model.type.Date', 
@@ -153,7 +153,7 @@
                         </form:label>
                         <form:fields>
                             <TextArea
-                                enabled="{view>/isNegociacaoEditavel}"
+                                enabled="{= ${view>/isNegociacaoEditavel} &amp;&amp; ${Origem} === 'F' }"
                                 value="{comentarioImpressao/Texto}" growing="true" width="100%"/>
                         </form:fields>
                     </form:FormElement>
