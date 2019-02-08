@@ -126,22 +126,43 @@
                         <m:VBox
                             >
 
-                            <m:Input value="{
-                                path: 'simulacao/PrecoVenda',
-                                type: 'sap.ui.model.odata.type.Decimal',
-                                constraints: {
-                                    precision: 12,
-                                    scale: 2
-                                    }
-                                }"
-                                change="onChangeReplicarEmFilhos"
-                                submit="onSubmit"
-                                enabled="{view>/isNegociacaoEmAnalises}"
-                                id="precoVendaEdit"
-                                maxLength="16"
-                                textAlign="Right"
-                                description=""
-                                />
+                            <m:HBox >
+
+                                <m:Text text="{
+                                    path: 'informacao/PrecoVenda',
+                                    type: 'sap.ui.model.odata.type.Decimal',
+                                    constraints: {
+                                        precision: 12,
+                                        scale: 2 }
+                                    }" wrapping="true"
+                                    visible="{= !( ${view>/isNegociacaoEmAnalises} &amp;&amp; ${view>/tipoNegociacao} === 'A' ) }"
+                                    />
+
+                                <m:Input value="{
+                                    path: 'simulacao/PrecoVenda',
+                                    type: 'sap.ui.model.odata.type.Decimal',
+                                    constraints: {
+                                        precision: 12,
+                                        scale: 2
+                                        }
+                                    }"
+                                    change="onChangeReplicarEmFilhos"
+                                    submit="onSubmit"
+                                    enabled="{= ${view>/isNegociacaoEmAnalises} &amp;&amp; ${view>/tipoNegociacao} === 'A' }"
+                                    visible="{= ${view>/isNegociacaoEmAnalises} &amp;&amp; ${view>/tipoNegociacao} === 'A' }"
+                                    id="precoVendaEdit"
+                                    maxLength="16"
+                                    textAlign="Right"
+                                    description=""
+                                    />
+
+                                <core:Icon
+                                    class="sapUiTinyMarginBegin"
+                                    src="{= ${PrecoVendaGerado} ? 'sap-icon://accept' : 'sap-icon://decline' }"
+                                    visible="{= ( ${view>/isNegociacaoAprovada} || ${view>/isNegociacaoFinalizada} ) &amp;&amp; ${Aprovado} }"
+                                    color="{= ${PrecoVendaGerado} ? 'green' : 'red'}" />
+
+                            </m:HBox>
 
                             <m:Text text="{
                                 path: 'informacao/PrecoVenda',
@@ -325,7 +346,7 @@
                 <Column id="aprovacaoColumn" label="Aprov." width="7%">
                     <template>
                         <m:Switch type="AcceptReject" state="{Aprovado}"
-                            enabled="{view>/isNegociacaoEmAnalises}"
+                            enabled="{= ${view>/isNegociacaoEmAnalises} &amp;&amp; ${view>/tipoNegociacao} === 'A' }"
                             visible="{
                                 parts: [ {path: 'Pai'} ],
                                 formatter: '.formatter.isAprovacaoItemVisible'

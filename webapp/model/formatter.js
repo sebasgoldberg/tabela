@@ -28,13 +28,13 @@ export default Object.assign({}, formatter, {
     isNegociacoesGeradasVisible: function(sTipoNegociacao, sStatus) {
         // Exibição das negociações geradas só para a tabela principal,
         // uma vez que foi concluida.
-        return ( sTipoNegociacao === 'B' && sStatus === 'N' );
+        return ( sTipoNegociacao === 'B' && ( sStatus === 'N' || sStatus === 'F' ));
     },
 
     isTabelaPrincipalConcluida: function(sTipoNegociacao, sStatus) {
         // Não será exibida a seção de variação de custo no casso que
         // a negociação seja a principal e ainda não fosse concluida.
-        return ( sTipoNegociacao === 'A' || sStatus === 'N' );
+        return ( sTipoNegociacao === 'A' || ( sStatus === 'N' || sStatus === 'F' ));
     },
 
     isAprovacaoItemVisible: function(iPai) {

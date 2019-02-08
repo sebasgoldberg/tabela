@@ -204,7 +204,7 @@
                     </VBox>
 
                     <Switch type="AcceptReject" state="{Aprovado}"
-                        enabled="{view>/isNegociacaoEmAnalises}"
+                        enabled="{= ${view>/isNegociacaoEmAnalises} &amp;&amp; ${view>/tipoNegociacao} === 'A' }"
                         visible="{
                             parts: [ {path: 'Pai'} ],
                             formatter: '.formatter.isAprovacaoItemVisible'

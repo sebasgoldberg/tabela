@@ -16,7 +16,7 @@
         press="onEnviarTabela"
         />
     <Button text="Iniciar Analises"
-        visible="{= !${view>/isNegociacaoEditavel} &amp;&amp; !${view>/isNegociacaoEmAnalises} &amp;&amp; ${TipoNegociacao} === 'B' }"
+        visible="{= ${view>/isTabelaEnviada} &amp;&amp; ${TipoNegociacao} === 'B' }"
         type="Accept"
         press="onIniciarAnalises"
         />
