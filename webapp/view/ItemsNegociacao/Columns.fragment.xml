@@ -129,7 +129,7 @@
                             <m:HBox >
 
                                 <m:Text text="{
-                                    path: 'informacao/PrecoVenda',
+                                    path: 'simulacao/PrecoVenda',
                                     type: 'sap.ui.model.odata.type.Decimal',
                                     constraints: {
                                         precision: 12,
