@@ -214,5 +214,12 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
         this.onGetItemsExportados(oEvent);
     },
 
+    refreshLogImportacao: function() {
+        this.getView()
+            .byId('ultimoLogImportacaoTable')
+            .getBinding('items')
+            .refresh();
+    },
+
 });
 
