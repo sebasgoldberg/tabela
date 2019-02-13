@@ -3,7 +3,7 @@
     >
 
     <uxap:ObjectPageSection title="Log Importação" id="logImportacaoObjectPageSection"
-        visible="{= ! ${Status} }">
+        visible="{= ! ${Status} }"> <!-- Em negociação -->
         <uxap:subSections>
             <uxap:ObjectPageSubSection title="Log Importação" id="logImportacaoSubSection" >
                 <uxap:blocks>
@@ -56,10 +56,7 @@
     </uxap:ObjectPageSection>
 
     <uxap:ObjectPageSection title="Comparativo UF" id="comparativoUFObjectPageSection"
-        visible="{
-            parts: [ {path: 'TipoNegociacao'}, {path: 'Status'} ],
-            formatter: '.formatter.isTabelaPrincipalConcluida'
-            }">
+        >
         <uxap:subSections>
             <uxap:ObjectPageSubSection title="Comparativo UF" id="comparativoUFSubSection" visible="true">
                 <uxap:blocks>

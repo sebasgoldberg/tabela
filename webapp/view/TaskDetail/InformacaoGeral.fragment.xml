@@ -115,6 +115,7 @@
                         </form:label>
                         <form:fields>
                             <DatePicker
+                                minDate="{view>/periodoApuracao/minDate}"
                                 id="VigenciaTabelaDatePicker"
                                 enabled="{= ${view>/isNegociacaoEditavel} &amp;&amp; ${Origem} === 'F' }"
                                 value="{

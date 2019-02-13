@@ -12,7 +12,7 @@
         path:'items',
         parameters:{
             templateShareable: true,
-            expand:'itemMerc,itemMerc/secao,itemMerc/grupo'
+            expand:'simulacao,informacao,itemMerc,itemMerc/secao,itemMerc/grupo,itemOrg'
             }
         }"
     id="ComparativoUFTable"
