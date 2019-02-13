@@ -60,6 +60,22 @@
                                 class="sapUiSmallMarginBottom"/>
                         </form:fields>
                     </form:FormElement>
+ 
+                    <form:FormElement
+                        visible="{= ${TipoNegociacao} === 'A' }"
+                        >
+                        <form:label>
+                            <Label text="Geração Preços Venda"/>
+                        </form:label>
+                        <form:fields>
+                            <CheckBox text="Nivel Loja" selected="{GerarPrecoVendaNivelLoja}"
+                                enabled="{= ${view>/isNegociacaoEmAnalises} &amp;&amp; ${TipoNegociacao} === 'A' }"
+                                />
+                        </form:fields>
+                    </form:FormElement>
+
+       
+
 
                 </form:formElements>
             </form:FormContainer>
@@ -128,6 +144,32 @@
                                 class="sapUiSmallMarginBottom"/>
                         </form:fields>
                     </form:FormElement>
+
+                    <form:FormElement
+                        visible="{= ${TipoNegociacao} === 'A'  &amp;&amp; ${GerarPrecoVendaNivelLoja}}"
+                        >
+                        <form:label>
+                            <Label text="Lojas Preço Venda a Gerar [?]" tooltip="Se não for informada loja(s) para uma determinada UF, então o preço de venda sera gerado para a UF em questão (se o indicador de geração de preço de venda estiver ativo para o item)."/>
+                        </form:label>
+                        <form:fields>
+                            <MultiInput 
+                                placeholder="Selecione Lojas"
+                                enabled="{= ${view>/isNegociacaoEmAnalises} &amp;&amp; ${TipoNegociacao} === 'A' }"
+                                id="multiInputLojasPrecoVenda"
+                                enableMultiLineMode="true"
+                                showValueHelp="true"
+                                valueHelpRequest="onValueHelpLojasPrecoVenda"
+                                tokenUpdate="onUpdateLojaPrecoVenda"
+                                tokens="{itemsOrgPrecoVenda}"
+                                >
+                                <tokens>
+                                    <Token key="{ID}" text="{Nome}" />
+                                </tokens>
+                            </MultiInput>
+                        </form:fields>
+                    </form:FormElement>
+
+
 
                 </form:formElements>
             </form:FormContainer>

@@ -146,20 +146,19 @@
                                         scale: 2
                                         }
                                     }"
-                                    change="onChangeReplicarEmFilhos"
                                     submit="onSubmit"
-                                    enabled="{= ${view>/isNegociacaoEmAnalises} &amp;&amp; ${view>/tipoNegociacao} === 'A' }"
-                                    visible="{= ${view>/isNegociacaoEmAnalises} &amp;&amp; ${view>/tipoNegociacao} === 'A' }"
                                     id="precoVendaEdit"
                                     maxLength="16"
                                     textAlign="Right"
                                     description=""
+                                    visible="{= ${view>/isNegociacaoEmAnalises} &amp;&amp; ${view>/tipoNegociacao} === 'A' }"
+                                    enabled="{= ${view>/isNegociacaoEmAnalises} &amp;&amp; ${view>/tipoNegociacao} === 'A' }"
                                     />
 
                                 <core:Icon
                                     class="sapUiTinyMarginBegin"
                                     src="{= ${PrecoVendaGerado} ? 'sap-icon://accept' : 'sap-icon://decline' }"
-                                    visible="{= ( ${view>/isNegociacaoAprovada} || ${view>/isNegociacaoFinalizada} ) &amp;&amp; ${Aprovado} }"
+                                    visible="{= ( ${view>/isNegociacaoAprovada} || ${view>/isNegociacaoFinalizada} ) &amp;&amp; ${Aprovado} &amp;&amp; ${GerarPrecoVenda} }"
                                     color="{= ${PrecoVendaGerado} ? 'green' : 'red'}" />
 
                             </m:HBox>
@@ -345,13 +344,23 @@
 
                 <Column id="aprovacaoColumn" label="Aprov." width="7%">
                     <template>
-                        <m:Switch type="AcceptReject" state="{Aprovado}"
-                            enabled="{= ${view>/isNegociacaoEmAnalises} &amp;&amp; ${view>/tipoNegociacao} === 'A' }"
-                            visible="{
-                                parts: [ {path: 'Pai'} ],
-                                formatter: '.formatter.isAprovacaoItemVisible'
-                                }"
-                            />
+                        <m:VBox>
+                            <m:Switch type="AcceptReject" state="{Aprovado}"
+                                tooltip="Item aprovado."
+                                enabled="{= ${view>/isNegociacaoEmAnalises} &amp;&amp; ${view>/tipoNegociacao} === 'A' }"
+                                visible="{
+                                    parts: [ {path: 'Pai'} ],
+                                    formatter: '.formatter.isAprovacaoItemVisible'
+                                    }"
+                                />
+                            <m:Switch state="{GerarPrecoVenda}" customTextOn="Cria" customTextOff="Não Cria"
+                                tooltip="Criar preço de venda."
+                                visible="{Aprovado}"
+                                enabled="{= ${view>/isNegociacaoEmAnalises} &amp;&amp; ${view>/tipoNegociacao} === 'A' }"
+                                />
+                        </m:VBox>
+
+
                     </template>
                 </Column>
 

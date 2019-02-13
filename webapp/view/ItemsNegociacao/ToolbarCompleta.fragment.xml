@@ -27,6 +27,14 @@
             iconFirst="false" type="Transparent"
             press="onRecusarItems" />
 
+        <HBox>
+            <Switch state="true" customTextOn="Cria" customTextOff="Não Cria"
+                tooltip="Criar preço de venda."
+                change="onMudarCriacaoPrecosVenda"
+                />
+            <Text value="Criar Preço Venda" />
+        </HBox>
+
    </HBox>
 
     <Button
