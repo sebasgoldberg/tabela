@@ -2,7 +2,7 @@
     xmlns:uxap="sap.uxap"
     >
 
-    <uxap:ObjectPageSection id="itemsObjectPageSection" title="Análises e Decisão"
+    <uxap:ObjectPageSection id="itemsObjectPageSection" title="Análise e Decisão"
         visible="{
             parts: [ {path: 'TipoNegociacao'}, {path: 'Status'} ],
             formatter: '.formatter.isTabelaPrincipalConcluida'

@@ -36,6 +36,7 @@
                     </template>
                 </Column>
 
+                <!--
                 <Column label="{
                     parts: [ {path: 'tipoNegociacao/ID'}, {path: 'TipoItemMercID'} ],
                     formatter: '.formatter.formatDescricaoItemMerc'
@@ -49,10 +50,14 @@
                             }" wrapping="true" />
                     </template>
                 </Column>
+                -->
 
-                <Column label="Descrição" width="15%">
+                <Column label="Material" width="15%">
                     <template>
-                        <m:Text text="{itemMerc/Nome}" wrapping="true" />
+                        <m:Text text="{
+                            parts: [ {path: 'itemMerc/ID'}, {path: 'itemMerc/Type'} ],
+                            formatter: '.formatter.formatItemMerc'
+                            } - {itemMerc/Nome}" wrapping="true" />
                     </template>
                 </Column>
 
@@ -342,7 +347,7 @@
                     </template>
                 </Column>
 
-                <Column id="aprovacaoColumn" label="Aprov." width="7%">
+                <Column id="aprovacaoColumn" label="Aprovar" tooltip="Aprovar Custo" width="6%">
                     <template>
                         <m:VBox>
                             <m:Switch type="AcceptReject" state="{Aprovado}"
@@ -353,8 +358,18 @@
                                     formatter: '.formatter.isAprovacaoItemVisible'
                                     }"
                                 />
-                            <m:Switch state="{GerarPrecoVenda}" customTextOn="Cria" customTextOff="Não Cria"
-                                tooltip="Criar preço de venda."
+                        </m:VBox>
+
+
+                    </template>
+                </Column>
+
+
+                <Column id="gravarPrecoVendaColumn" label="Gravar" tooltip="Gravar Preço Venda" width="6%">
+                    <template>
+                        <m:VBox>
+                            <m:Switch state="{GerarPrecoVenda}" customTextOn="Grava" customTextOff="Não Grava"
+                                tooltip="Gravar preço de venda."
                                 visible="{Aprovado}"
                                 enabled="{= ${view>/isNegociacaoEmAnalises} &amp;&amp; ${view>/tipoNegociacao} === 'A' }"
                                 />

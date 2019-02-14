@@ -156,7 +156,7 @@
                                 placeholder="Selecione Lojas"
                                 enabled="{= ${view>/isNegociacaoEmAnalises} &amp;&amp; ${TipoNegociacao} === 'A' }"
                                 id="multiInputLojasPrecoVenda"
-                                enableMultiLineMode="true"
+                                enableMultiLineMode="false"
                                 showValueHelp="true"
                                 valueHelpRequest="onValueHelpLojasPrecoVenda"
                                 tokenUpdate="onUpdateLojaPrecoVenda"

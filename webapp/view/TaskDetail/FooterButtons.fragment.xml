@@ -15,12 +15,12 @@
         type="Accept"
         press="onEnviarTabela"
         />
-    <Button text="Iniciar Analises"
+    <Button text="Iniciar Análise"
         visible="{= ${view>/isTabelaEnviada} &amp;&amp; ${TipoNegociacao} === 'B' }"
         type="Accept"
         press="onIniciarAnalises"
         />
-    <Button text="Concluir Analises"
+    <Button text="Concluir Análise"
         visible="{= ${view>/isNegociacaoEmAnalises} &amp;&amp; ${TipoNegociacao} === 'A' }"
         type="Accept"
         press="onEnviarParaAprovacao"

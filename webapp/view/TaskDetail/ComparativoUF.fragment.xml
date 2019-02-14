@@ -59,42 +59,42 @@
                 <footer/>
             </Column>
 
-            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+            <Column width="12%" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
                 <header>
                     <Text text="Seção" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
                 </header>
                 <footer/>
             </Column>
 
-            <Column width="20%" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+            <Column width="18%" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
                 <header>
                     <Text text="Grupo" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
                 </header>
                 <footer/>
             </Column>
 
-            <Column width="6%" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+            <Column width="4%" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
                 <header>
                     <Text text="UF" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
                 </header>
                 <footer/>
             </Column>
 
-            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+            <Column width="auto" hAlign="Right" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
                 <header>
                     <Text text="Custo Novo" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
                 </header>
                 <footer/>
             </Column>
 
-            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+            <Column width="auto" hAlign="Right" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
                 <header>
                     <Text text="Custo Atual" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
                 </header>
                 <footer/>
             </Column>
 
-            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+            <Column width="auto" hAlign="Right" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
                 <header>
                     <Text text="Var. Custo" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
                 </header>
