@@ -58,7 +58,7 @@
                    <m:Text text="{
                         path: 'ParticipacaoCompra',
                         type: 'sap.ui.model.odata.type.Decimal',
-                        constraints: { scale: 3 }
+                        constraints: { scale: 2 }
                         }" wrapping="true"
                         />
                 </template>
@@ -69,7 +69,7 @@
                    <m:Text text="{
                         path: 'VariacaoCustoGeral',
                         type: 'sap.ui.model.odata.type.Decimal',
-                        constraints: { scale: 3 }
+                        constraints: { scale: 2 }
                         }" wrapping="true"
                         />
                 </template>

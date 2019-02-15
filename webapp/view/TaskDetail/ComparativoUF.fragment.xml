@@ -103,7 +103,7 @@
 
             <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
                 <header>
-                    <Text text="Aprov." width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+                    <Text text="Aprovar" tooltip="Aprovar Custo" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
                 </header>
                 <footer/>
             </Column>

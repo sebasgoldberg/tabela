@@ -365,10 +365,12 @@
                 </Column>
 
 
-                <Column id="gravarPrecoVendaColumn" label="Gravar" tooltip="Gravar Preço Venda" width="6%">
+                <Column id="gravarPrecoVendaColumn" label="Pr. Venda" tooltip="Gravar Preço Venda" width="6%"
+                    visible="{= ${GerarPrecoVendaNivelUF} || ${GerarPrecoVendaNivelLoja} }"
+                    >
                     <template>
                         <m:VBox>
-                            <m:Switch state="{GerarPrecoVenda}" customTextOn="Grava" customTextOff="Não Grava"
+                            <m:Switch state="{GerarPrecoVenda}" customTextOn="SIM" customTextOff="NÃO"
                                 tooltip="Gravar preço de venda."
                                 visible="{Aprovado}"
                                 enabled="{= ${view>/isNegociacaoEmAnalises} &amp;&amp; ${view>/tipoNegociacao} === 'A' }"

@@ -68,9 +68,16 @@
                             <Label text="Geração Preços Venda"/>
                         </form:label>
                         <form:fields>
-                            <CheckBox text="Nivel Loja" selected="{GerarPrecoVendaNivelLoja}"
-                                enabled="{= ${view>/isNegociacaoEmAnalises} &amp;&amp; ${TipoNegociacao} === 'A' }"
-                                />
+                            <VBox>
+                                <CheckBox text="Nivel Loja" selected="{GerarPrecoVendaNivelLoja}"
+                                    enabled="{= ${view>/isNegociacaoEmAnalises} &amp;&amp; ${TipoNegociacao} === 'A' }"
+                                    />
+                                <CheckBox
+                                    text="Nivel UF {= ${GerarPrecoVendaNivelLoja} ? '(se não houver loja definida para a UF)' : '' }"
+                                    selected="{GerarPrecoVendaNivelUF}"
+                                    enabled="{= ${view>/isNegociacaoEmAnalises} &amp;&amp; ${TipoNegociacao} === 'A' }"
+                                    />
+                            </VBox>
                         </form:fields>
                     </form:FormElement>
 
@@ -149,7 +156,7 @@
                         visible="{= ${TipoNegociacao} === 'A'  &amp;&amp; ${GerarPrecoVendaNivelLoja}}"
                         >
                         <form:label>
-                            <Label text="Lojas Preço Venda a Gerar [?]" tooltip="Se não for informada loja(s) para uma determinada UF, então o preço de venda sera gerado para a UF em questão (se o indicador de geração de preço de venda estiver ativo para o item)."/>
+                            <Label text="Loja(s) a gravar preço de venda" />
                         </form:label>
                         <form:fields>
                             <MultiInput 
