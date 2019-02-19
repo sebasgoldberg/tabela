@@ -2,7 +2,7 @@
     <Button
         id="anexosNegociacaoButton"
         visible="{= ${view>/isNegociacaoEditavel} &amp;&amp; ${Origem} === 'F' }"
-        text="Importar Tabela" icon="sap-icon://attachment" press="onMostrarAnexos">
+        text="Importar Arquivo TXT" icon="sap-icon://attachment" press="onMostrarAnexos">
         <layoutData>
             <OverflowToolbarLayoutData moveToOverflow="true"/>
         </layoutData>

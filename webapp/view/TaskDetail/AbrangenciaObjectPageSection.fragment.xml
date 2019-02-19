@@ -3,7 +3,7 @@
     >
 
     <uxap:ObjectPageSection title="Log Importação" id="logImportacaoObjectPageSection"
-        visible="{= ! ${Status} }"> <!-- Em negociação -->
+        visible="{= ${Origem} === 'F' &amp;&amp; !${Status} }"> <!-- Em negociação -->
         <uxap:subSections>
             <uxap:ObjectPageSubSection title="Log Importação" id="logImportacaoSubSection" >
                 <uxap:blocks>
@@ -56,6 +56,12 @@
     </uxap:ObjectPageSection>
 
     <uxap:ObjectPageSection title="Comparativo UF" id="comparativoUFObjectPageSection"
+        visible="{=
+            ${TipoNegociacao} === 'A' ||
+            ${Origem} === 'F' ||
+            ${Status} === 'N' || 
+            ${Status} === 'F'
+            }"
         >
         <uxap:subSections>
             <uxap:ObjectPageSubSection title="Comparativo UF" id="comparativoUFSubSection" visible="true">
