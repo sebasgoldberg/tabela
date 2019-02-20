@@ -372,7 +372,7 @@
                         <m:VBox>
                             <m:Switch state="{GerarPrecoVenda}" customTextOn="SIM" customTextOff="NÃO"
                                 tooltip="Gravar preço de venda."
-                                visible="{Aprovado}"
+                                visible="{itemPrincipal/Aprovado}"
                                 enabled="{= ${view>/isNegociacaoEmAnalises} &amp;&amp; ${view>/tipoNegociacao} === 'A' }"
                                 />
                         </m:VBox>
