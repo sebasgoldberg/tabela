@@ -55,7 +55,11 @@
         </uxap:subSections>
     </uxap:ObjectPageSection>
 
-    <uxap:ObjectPageSection title="Comparativo UF" id="comparativoUFObjectPageSection"
+    <uxap:ObjectPageSection title="{
+        parts: [ {path: 'Status'} ],
+        formatter: '.formatter.textoSecaoCustosItens'
+        }"
+        id="comparativoUFObjectPageSection"
         visible="{=
             ${TipoNegociacao} === 'A' ||
             ${Origem} === 'F' ||
@@ -64,7 +68,11 @@
             }"
         >
         <uxap:subSections>
-            <uxap:ObjectPageSubSection title="Comparativo UF" id="comparativoUFSubSection" visible="true">
+            <uxap:ObjectPageSubSection title="{
+                parts: [ {path: 'Status'} ],
+                formatter: '.formatter.textoSecaoCustosItens'
+                }"
+                id="comparativoUFSubSection" visible="true">
                 <uxap:blocks>
                     <core:Fragment fragmentName="simplifique.telaneg.tabela.view.TaskDetail.ComparativoUF" type="XML" />
                 </uxap:blocks>

@@ -53,5 +53,11 @@ export default Object.assign({}, formatter, {
         return 'UF';
     },
 
+    textoSecaoCustosItens: function(sStatus) {
+        if ( !sStatus || sStatus === 'T' )
+            return "Itens"
+        return "Comparativo UF"
+    },
+
 });
 
