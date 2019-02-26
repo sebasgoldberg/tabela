@@ -34,7 +34,7 @@
                 suggestionItems="{/SecaoSet}"
                 maxSuggestionWidth="500px"
                 showValueHelp="false"
-                tokens="{/SecoesPossiveisUsuarioSet}"
+                tokens="{/SecaoPossivelUsuarioSet}"
                 >
 
                 <tokens>
