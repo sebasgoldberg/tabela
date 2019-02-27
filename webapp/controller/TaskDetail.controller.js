@@ -113,6 +113,19 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
             });
     },
 
+    onRenegociar: function() {
+        return this.changeStatusNegociacao({
+            temCertezaOptions: {
+                pergunta: "Tem certeza que deseja enviar a tabela para ser analisada novamente?",
+                titulo: "Renegociar Tabela",
+            },
+            functionImportPath: '/AnalisarNovamente',
+            successMessage: "Tabela enviada para ser analisada novamente, feito com sucesso.",
+            errorMessage: "Aconteceram erros ao tentar enviar a tabela para ser analisada novamente.",
+            });
+    },
+
+
     onRejeitar: function() {
         return this.changeStatusNegociacao({
             temCertezaOptions: {

@@ -30,6 +30,11 @@
         type="Accept"
         press="onAprovar"
         />
+    <Button text="Renegociar"
+        visible="{view>/isNegociacaoEmAprovacao}"
+        type="Emphasized"
+        press="onRenegociar"
+        />
     <Button text="Rejeitar"
         visible="{view>/isNegociacaoEmAprovacao}"
         type="Reject"
