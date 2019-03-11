@@ -27,6 +27,10 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
         oTabelasImportadasDialog.open(sNegociacaoPath);
     },
 
+    refreshResumo: function() {
+        this.getView().byId('resumoTreeTable').getBinding('rows').refresh();
+    },
+
     refreshVariacaoCusto: function() {
         this.getView().byId('variacaoCustoTreeTable').getBinding('rows').refresh();
     },
@@ -208,11 +212,12 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
         
     },
 
-    onAtualizarIC: function(oEvent) {
-        this.simularItemsSelecionados({
+    onAtualizarIC: async function(oEvent) {
+        if (await this.simularItemsSelecionados({
             successMessage: 'Atualização de IC realizada para os itens selecionados.',
             errorMessage: 'Aconteceu um erro ao tentar atualizar o IC dos itens selecionados.',
-            });
+            }))
+            this.refreshResumo();
     },
 
     onExportarVariacaoCusto: function(oEvent) {
