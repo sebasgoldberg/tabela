@@ -46,7 +46,7 @@
                     <m:Text text="{itemMerc/Nome}" wrapping="true" />
                 </template>
             </Column>
-            <Column width="auto">
+            <Column width="8%">
                 <m:Label text="Fornecedor" />
                 <template>
                     <m:Text text="{FornecedorID}" wrapping="true" />
