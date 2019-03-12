@@ -1,171 +1,83 @@
-<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" >
-
-    <Table 
-    class="tabelaItens"
-    keyboardMode="Edit"
-    alternateRowColors="true"
-    showSeparators="All"
-    growing='false'
-    growingThreshold='5'
-    growingScrollToLoad='false'
-    items="{
-        path:'items',
-        parameters:{
-            templateShareable: true,
-            expand:'simulacao,informacao,itemMerc,itemMerc/secao,itemMerc/grupo,itemOrg,negociacao'
-            }
-        }"
-    id="ComparativoUFTable"
-    mode="" 
+<core:FragmentDefinition
+    xmlns="sap.ui.table"
+    xmlns:m="sap.m"
+    xmlns:core="sap.ui.core"
     >
-        <headerToolbar>
-            <Toolbar width="auto" height="46px" design="Transparent" visible="true" enabled="true">
-                <content>
-                    <ToolbarSpacer width=""/>
 
+    <Table
+        id="ComparativoUFTable"
+        class="tabelaItens"
+        keyboardMode="Edit"
+        rows="{
+            path:'items',
+            parameters:{
+                templateShareable: true,
+                expand:'simulacao,informacao,itemMerc,itemMerc/secao,itemMerc/grupo,itemOrg,negociacao'
+                }
+            }"
+        >
+        <toolbar>
+            <m:Toolbar>
+                <m:ToolbarSpacer/>
 
-                    <ToggleButton
-                        pressed="{view_tab>/SemICMS}"
-                        text="Sem ICMS"
-                        icon="sap-icon://unpaid-leave"
-                        iconFirst="false"
-                        type="Transparent"
-                        visible="{= !( !${Status} || ${Status} === 'T' ) }"
-                        />
-
-                </content>
-                <tooltip/>
-            </Toolbar>
-        </headerToolbar>
+                <m:ToggleButton
+                    pressed="{view_tab>/SemICMS}"
+                    text="Sem ICMS"
+                    icon="sap-icon://unpaid-leave"
+                    iconFirst="false"
+                    type="Transparent"
+                    visible="{= !( !${Status} || ${Status} === 'T' ) }"
+                    />
+            </m:Toolbar>
+        </toolbar>
         <columns>
-
-            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="false" popinDisplay="Inline" mergeDuplicates="false">
-                <header>
-                    <Text text="Mercadoria" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
-                </header>
-                <footer/>
-            </Column>
-
-            <Column width="20%" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="false" popinDisplay="Inline" mergeDuplicates="false">
-                <header>
-                    <Text text="Descrição" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
-                </header>
-                <footer/>
-            </Column>
-
-            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
-                <header>
-                    <Text text="Fornecedor" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
-                </header>
-                <footer/>
-            </Column>
-
-            <Column width="12%" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
-                <header>
-                    <Text text="Seção" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
-                </header>
-                <footer/>
-            </Column>
-
-            <Column width="18%" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
-                <header>
-                    <Text text="Grupo" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
-                </header>
-                <footer/>
-            </Column>
-
-            <Column width="4%" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
-                <header>
-                    <Text text="UF" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
-                </header>
-                <footer/>
-            </Column>
-
-
-            <Column width="auto" hAlign="Right" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false"
-                visible="{= !${Status} || ${Status} === 'T' }"
-                >
-                <header>
-                    <Text text="Custo Bruto" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
-                </header>
-                <footer/>
-            </Column>
-
-            <Column width="auto" hAlign="Right" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false"
-                visible="{= !${Status} || ${Status} === 'T' }"
-                >
-                <header>
-                    <Text text="Desconto" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
-                </header>
-                <footer/>
-            </Column>
-
-            <Column width="auto" hAlign="Right" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false"
-                visible="{= !${Status} || ${Status} === 'T' }"
-                >
-                <header>
-                    <Text text="Despesas Acessorias" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
-                </header>
-                <footer/>
-            </Column>
-
-
-            <Column width="auto" hAlign="Right" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false"
-                visible="{= !( !${Status} || ${Status} === 'T' ) }"
-                >
-                <header>
-                    <Text text="Custo Novo" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
-                </header>
-                <footer/>
-            </Column>
-
-            <Column width="auto" hAlign="Right" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false"
-                visible="{= !( !${Status} || ${Status} === 'T' ) }"
-                >
-                <header>
-                    <Text text="Custo Atual" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
-                </header>
-                <footer/>
-            </Column>
-
-            <Column width="auto" hAlign="Right" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false"
-                visible="{= !( !${Status} || ${Status} === 'T' ) }"
-                >
-                <header>
-                    <Text text="Var. Custo" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
-                </header>
-                <footer/>
-            </Column>
-
-
-            <Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
-                <header>
-                    <Text text="Aprovar" tooltip="Aprovar Custo" width="auto" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
-                </header>
-                <footer/>
-            </Column>
-
-        </columns>
-        <items>
-            <ColumnListItem item="{item}">
-                <cells>
-
-                    <Text text="{
+            <Column width="auto" >
+                <m:Label text="Mercadoria" />
+                <template>
+                    <m:Text text="{
                         parts: [ {path: 'itemMerc/ID'}, {path: 'itemMerc/Type'} ],
                         formatter: '.formatter.formatItemMerc'
                         }" wrapping="true" />
-
-                    <Text text="{itemMerc/Nome}" wrapping="true" />
-
-                    <Text text="{FornecedorID}" wrapping="true" />
-
-                    <Text text="{itemMerc/secao/Nome}" wrapping="true" />
-
-                    <Text text="{itemMerc/grupo/Nome}" wrapping="true" />
-
-                    <Text text="{itemOrg/ID}" wrapping="true" />
-
-                    <Text text="{
+                </template>
+            </Column>
+            <Column width="20%">
+                <m:Label text="Descrição" />
+                <template>
+                    <m:Text text="{itemMerc/Nome}" wrapping="true" />
+                </template>
+            </Column>
+            <Column width="auto">
+                <m:Label text="Fornecedor" />
+                <template>
+                    <m:Text text="{FornecedorID}" wrapping="true" />
+                </template>
+            </Column>
+            <Column width="12%">
+                <m:Label text="Seção" />
+                <template>
+                    <m:Text text="{itemMerc/secao/Nome}" wrapping="true" />
+                </template>
+            </Column>
+            <Column width="18%">
+                <m:Label text="Grupo" />
+                <template>
+                    <m:Text text="{itemMerc/grupo/Nome}" wrapping="true" />
+                </template>
+            </Column>
+            <Column width="4%">
+                <m:Label text="UF" />
+                <template>
+                    <m:Text text="{itemOrg/ID}" wrapping="true" />
+                </template>
+            </Column>
+            <Column width="auto"
+                visible="{= !${Status} || ${Status} === 'T' }"
+                hAlign="End"
+                >
+                <m:Label text="C. Bruto" tooltip="Custo Bruto"
+                    />
+                <template>
+                    <m:Text text="{
                         path: 'simulacao/CustoBruto',
                         type: 'sap.ui.model.odata.type.Decimal',
                         constraints: {
@@ -173,35 +85,54 @@
                             scale: 6
                             }
                         }" wrapping="true"
-                        visible="{= !${negociacao/Status} || ${negociacao/Status} === 'T' }"
                         />
-
-                    <Text text="{
+                </template>
+            </Column>
+            <Column width="auto"
+                visible="{= !${Status} || ${Status} === 'T' }"
+                hAlign="End"
+                >
+                <m:Label text="Desconto" visible="{= !${Status} || ${Status} === 'T' }"
+                    />
+                <template>
+                    <m:Text text="{
                         path: 'simulacao/Desconto',
                         type: 'sap.ui.model.odata.type.Decimal',
                         constraints: {
                             precision: 8,
                             scale: 3 }
                         }" wrapping="true"
-                        visible="{= !${negociacao/Status} || ${negociacao/Status} === 'T' }"
                         />
-
-
-                    <Text text="{
+                </template>
+            </Column>
+            <Column width="auto"
+                visible="{= !${Status} || ${Status} === 'T' }"
+                hAlign="End"
+                >
+                <m:Label text="Despesas" tooltip="Despesas Acessorias"
+                    />
+                <template>
+                    <m:Text text="{
                         path: 'simulacao/DespesasAcessorias',
                         type: 'sap.ui.model.odata.type.Decimal',
                         constraints: {
                             precision: 16,
                             scale: 6 }
                         }" wrapping="true"
-                        visible="{= !${negociacao/Status} || ${negociacao/Status} === 'T' }"
                         />
-
-                    <VBox
-                        visible="{= !( !${negociacao/Status} || ${negociacao/Status} === 'T' ) }"
+                </template>
+            </Column>
+            <Column width="auto"
+                visible="{= !( !${Status} || ${Status} === 'T' ) }"
+                hAlign="End"
+                >
+                <m:Label text="C. Novo" tooltip="Custo Novo"
+                    />
+                <template>
+                    <m:VBox
                         >
 
-                        <Text text="{
+                        <m:Text text="{
                             path: 'simulacao/CustoReal',
                             type: 'sap.ui.model.odata.type.Decimal',
                             constraints: {
@@ -211,7 +142,7 @@
                             }" wrapping="true"
                             />
 
-                        <Text text="{
+                        <m:Text text="{
                             path: 'simulacao/CustoRealSemICMS',
                             type: 'sap.ui.model.odata.type.Decimal',
                             constraints: {
@@ -222,13 +153,20 @@
                             visible="{view_tab>/SemICMS}"
                             />
 
-                    </VBox>
-
-                    <VBox
-                        visible="{= !( !${negociacao/Status} || ${negociacao/Status} === 'T' ) }"
+                    </m:VBox>
+                </template>
+            </Column>
+            <Column width="auto"
+                visible="{= !( !${Status} || ${Status} === 'T' ) }"
+                hAlign="End"
+                >
+                <m:Label text="C. Atual" tooltip="Custo Atual"
+                    />
+                <template>
+                    <m:VBox
                         >
 
-                        <Text text="{
+                        <m:Text text="{
                             path: 'informacao/CustoReal',
                             type: 'sap.ui.model.odata.type.Decimal',
                             constraints: {
@@ -238,7 +176,7 @@
                             }" wrapping="true"
                             />
 
-                        <Text text="{
+                        <m:Text text="{
                             path: 'informacao/CustoRealSemICMS',
                             type: 'sap.ui.model.odata.type.Decimal',
                             constraints: {
@@ -249,13 +187,20 @@
                             visible="{view_tab>/SemICMS}"
                             />
 
-                    </VBox>
-
-                    <VBox
-                        visible="{= !( !${negociacao/Status} || ${negociacao/Status} === 'T' ) }"
+                    </m:VBox>
+                </template>
+            </Column>
+            <Column width="auto"
+                visible="{= !( !${Status} || ${Status} === 'T' ) }"
+                hAlign="End"
+                >
+                <m:Label text="Var. Cus." tooltip="Variação Custo"
+                    />
+                <template>
+                    <m:VBox
                         >
 
-                        <Text text="{
+                        <m:Text text="{
                             path: 'simulacao/VariacaoCustoReal',
                             type: 'sap.ui.model.odata.type.Decimal',
                             constraints: {
@@ -265,7 +210,7 @@
                             }" wrapping="true"
                             />
 
-                        <Text text="{
+                        <m:Text text="{
                             path: 'simulacao/VariacaoCustoRealSemICMS',
                             type: 'sap.ui.model.odata.type.Decimal',
                             constraints: {
@@ -276,19 +221,22 @@
                             visible="{view_tab>/SemICMS}"
                             />
 
-                    </VBox>
-
-                    <Switch type="AcceptReject" state="{Aprovado}"
+                    </m:VBox>
+                </template>
+            </Column>
+            <Column width="auto">
+                <m:Label text="Aprovar" tooltip="Aprovar Custo"/>
+                <template>
+                    <m:Switch type="AcceptReject" state="{Aprovado}"
                         enabled="{= ${view>/isNegociacaoEmAnalises} &amp;&amp; ${view>/tipoNegociacao} === 'A' }"
                         visible="{
                             parts: [ {path: 'Pai'} ],
                             formatter: '.formatter.isAprovacaoItemVisible'
                             }"
                         />
-
-                </cells>
-            </ColumnListItem>
-        </items>
+                </template>
+            </Column>
+        </columns>
     </Table>
 
 </core:FragmentDefinition>

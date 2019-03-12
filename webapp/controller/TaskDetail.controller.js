@@ -149,7 +149,7 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
 
     setItemsFilters: function(aFilters) {
         Controller.prototype.setItemsFilters.call(this, aFilters);
-        this.getView().byId('ComparativoUFTable').getBinding('items').filter(aFilters, FilterType.Application);
+        this.getView().byId('ComparativoUFTable').getBinding('rows').filter(aFilters, FilterType.Application);
     },
 
     onSolicitarPesquisa: function(oEvent) {
@@ -207,7 +207,7 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
         this
             .getView()
             .byId('ComparativoUFTable')
-            .getBinding("items")
+            .getBinding("rows")
             .sort(aSorters);
         
     },
@@ -235,7 +235,7 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
     refreshLogImportacao: function() {
         this.getView()
             .byId('ultimoLogImportacaoTable')
-            .getBinding('items')
+            .getBinding('rows')
             .refresh();
     },
 
