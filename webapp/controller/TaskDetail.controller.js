@@ -159,7 +159,7 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
         let oNegociacao = v.getBindingContext().getObject();
 
         // Sugerimos o assunto
-        this.getModel('mail').setProperty('/assunto',`Solicitação Pesquisa Preço - Items Negociação ${oNegociacao.ID}`);
+        this.getModel('mail').setProperty('/assunto',`Pesquisa de Preço - Negociação ${oNegociacao.ID}`);
 
         // Sugerimos o corpo
         let oTree = this.getView().byId('treeTable');
