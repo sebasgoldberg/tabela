@@ -316,7 +316,7 @@
                     </template>
                 </Column>
 
-                <Column id="consultasColumn" label="" width="7%">
+                <Column id="consultasColumn" label="" width="9%">
                     <template>
                         <m:HBox>
                         <core:Icon
@@ -334,6 +334,15 @@
                             hoverColor="#386084"
                             tooltip="Estoque"
                             press="onMostrarEstoque"
+                            />
+                        <core:Icon
+                            noTabStop="true"
+                            class="sapUiTinyMarginEnd"
+                            src="sap-icon://competitor"
+                            size="16px"
+                            hoverColor="#386084"
+                            tooltip="Historico Preços Mercado"
+                            press="onMostrarHistoricoPrecosMercado"
                             />
                         <core:Icon
                             noTabStop="true"
