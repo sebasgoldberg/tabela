@@ -161,6 +161,9 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
         // Sugerimos o assunto
         this.getModel('mail').setProperty('/assunto',`Pesquisa de Preço - Negociação ${oNegociacao.ID}`);
 
+        //Sugerimos o destinatário
+        this.getModel('mail').setProperty('/destinatarios',oNegociacao.Email);
+
         // Sugerimos o corpo
         let oTree = this.getView().byId('treeTable');
         let sBorder = "border: 1px solid black;";

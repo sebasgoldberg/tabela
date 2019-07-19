@@ -193,6 +193,7 @@
             <Column width="auto"
                 visible="{= !( !${Status} || ${Status} === 'T' ) }"
                 hAlign="End"
+                sortProperty="VariacaoCustoReal"
                 >
                 <m:Label text="Var. Cus." tooltip="Variação Custo"
                     />

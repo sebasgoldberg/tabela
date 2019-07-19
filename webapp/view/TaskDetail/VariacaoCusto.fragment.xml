@@ -64,7 +64,8 @@
                 </template>
             </Column>
 
-            <Column label="Var. Custo" tooltip="Variação de Custo [%]" hAlign="Right">
+            <Column label="Var. Custo" tooltip="Variação de Custo [%]" hAlign="Right"
+            sortProperty="VariacaoCustoGeral">
                 <template>
                    <m:Text text="{
                         path: 'VariacaoCustoGeral',
