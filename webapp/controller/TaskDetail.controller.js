@@ -20,12 +20,6 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
         return 'tipoNegociacao,fornecedor,status,bandeira,comentarioImpressao,agregacao';
     },
 
-    getMinPeriodoApuracao: function() {
-        let oAmanha = new Date();
-        oAmanha.setDate(oAmanha.getDate()+1);
-        return oAmanha;
-    },
-
     onMostrarAnexos: function(oEvent) {
         let sNegociacaoPath = this.getView().getBindingContext().getPath();
         let oTabelasImportadasDialog = this.getOwnerComponent().getTabelasImportadasDialog();
