@@ -169,6 +169,30 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
         let sBorder = "border: 1px solid black;";
         let sTableStyle = `style="margin: 1em; ${sBorder}"`
         let sCellStyle = `style="padding: 5px; ${sBorder}"`;
+        //separamos os registros a serem exibidos no corpo
+        let selectedIndices = oTree.getSelectedIndices();
+        let selectedContexts = selectedIndices.map( index => oTree.getContextByIndex(index) );
+        let selectedObjects = selectedContexts.map( 
+            bc => {
+                var info = bc.getObject(bc.getPath() + '/informacao');
+                var nome = bc.getObject(bc.getPath() + '/itemMerc/Nome');
+                if(info.MenorPrecoMercado == 0){
+                    var obj = bc.getObject();
+                    obj.MaterialID = parseInt(obj.MaterialID).toString() ;
+                    obj.MaterialID = obj.MaterialID + " " + nome;
+                    return obj;
+                }                
+            });
+        let objetosSemPreco = selectedObjects.filter( obj => obj != undefined );
+        let sHtmlRowsItemsSelecionados = objetosSemPreco.reduce( (sHtml, oItem) => `${sHtml}
+        <tr>
+            <td ${sCellStyle}>${oItem.OrgID}</td>
+            <td ${sCellStyle}>${oItem.FornecedorID}</td>
+            <td ${sCellStyle}>${oItem.MaterialID}</td>
+        </tr>
+        `, '');
+
+             /*
         let sHtmlRowsItemsSelecionados = oTree.getSelectedIndices()
             .map( index => oTree.getContextByIndex(index) )
             .map( bc => bc.getObject() )
@@ -179,7 +203,7 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
                     <td ${sCellStyle}>${oItem.MaterialID}</td>
                 </tr>
                 `, '');
-
+        */
         if (!sHtmlRowsItemsSelecionados){
             MessageToast.show('Deve selecionar os itens nos quais aplicaria a pesquisa.');
             return;
