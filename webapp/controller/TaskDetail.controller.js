@@ -189,6 +189,7 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
             <td ${sCellStyle}>${oItem.OrgID}</td>
             <td ${sCellStyle}>${oItem.FornecedorID}</td>
             <td ${sCellStyle}>${oItem.MaterialID}</td>
+            <td ${sCellStyle}>${oItem.EAN}</td>
         </tr>
         `, '');
 
@@ -218,6 +219,7 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
                     <th ${sCellStyle}>UF</th>
                     <th ${sCellStyle}>Fornecedor</th>
                     <th ${sCellStyle}>Material</th>
+                    <th ${sCellStyle}>EAN</th>
                 </tr>
                 ${sHtmlRowsItemsSelecionados}
             </table>
