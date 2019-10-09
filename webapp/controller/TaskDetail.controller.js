@@ -155,8 +155,13 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
     onSolicitarPesquisa: function(oEvent) {
 
         let v = this.getView();
+        let m = v.getModel();
+        let oContext = v.getBindingContext();
+        let oNegociacao = oContext.getObject();
+        let sPath = oContext.getPath();
+        let nomeFornecedor = m.getProperty(sPath + '/fornecedor/Nome');
 
-        let oNegociacao = v.getBindingContext().getObject();
+        
 
         // Sugerimos o assunto
         this.getModel('mail').setProperty('/assunto',`Pesquisa de Preço - Negociação ${oNegociacao.ID}`);
@@ -169,6 +174,7 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
         let sBorder = "border: 1px solid black;";
         let sTableStyle = `style="margin: 1em; ${sBorder}"`
         let sCellStyle = `style="padding: 5px; ${sBorder}"`;
+        let sCellStyleCenter = `style="padding: 5px; ${sBorder}"`;
         //separamos os registros a serem exibidos no corpo
         let selectedIndices = oTree.getSelectedIndices();
         let selectedContexts = selectedIndices.map( index => oTree.getContextByIndex(index) );
@@ -176,10 +182,14 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
             bc => {
                 var info = bc.getObject(bc.getPath() + '/informacao');
                 var nome = bc.getObject(bc.getPath() + '/itemMerc/Nome');
+                var precoVenda = bc.getObject(bc.getPath() + '/simulacao/PrecoVenda');
                 if(info.MenorPrecoMercado == 0){
                     var obj = bc.getObject();
                     obj.MaterialID = parseInt(obj.MaterialID).toString() ;
-                    obj.MaterialID = obj.MaterialID + " " + nome;
+                    obj.Nome = nome;
+                    obj.PrecoVenda = precoVenda;
+                    obj.PrecoVenda = obj.PrecoVenda.replace(/\./g,',')
+                    //obj.MaterialID = obj.MaterialID + " " + nome;
                     return obj;
                 }                
             });
@@ -187,9 +197,11 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
         let sHtmlRowsItemsSelecionados = objetosSemPreco.reduce( (sHtml, oItem) => `${sHtml}
         <tr>
             <td ${sCellStyle}>${oItem.OrgID}</td>
-            <td ${sCellStyle}>${oItem.FornecedorID}</td>
             <td ${sCellStyle}>${oItem.MaterialID}</td>
             <td ${sCellStyle}>${oItem.EAN}</td>
+            <td ${sCellStyle}>${oItem.Nome}</td>
+            <td align='center' ${sCellStyle}>${oItem.PrecoVenda}</td>
+            
         </tr>
         `, '');
 
@@ -212,14 +224,15 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
 
         this.getModel('mail').setProperty('/corpo',`
             <p>Estimado(s),</p>
-            <p>Solicitamos por favor a pesquisa de preço de venda dos seguintes items associados a negociação ${oNegociacao.ID}</p>
+            <p>Solicitamos por favor a pesquisa de preço de venda dos seguintes items associados a negociação ${oNegociacao.ID} ${nomeFornecedor}</p>
             <p>
             <table ${sTableStyle}>
                 <tr>
                     <th ${sCellStyle}>UF</th>
-                    <th ${sCellStyle}>Fornecedor</th>
-                    <th ${sCellStyle}>Material</th>
+                    <th ${sCellStyle}>CÓDIGO</th>
                     <th ${sCellStyle}>EAN</th>
+                    <th ${sCellStyle}>DESCRIÇÃO</th>                    
+                    <th ${sCellStyle}>PREÇO VENDA</th>
                 </tr>
                 ${sHtmlRowsItemsSelecionados}
             </table>

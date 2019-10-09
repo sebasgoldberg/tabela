@@ -42,9 +42,8 @@
     </uxap:ObjectPageSection>
 
     <uxap:ObjectPageSection title="Variação Custo" id="variacaoCustoObjectPageSection"
-        visible="{
-            parts: [ {path: 'TipoNegociacao'}, {path: 'Status'} ],
-            formatter: '.formatter.isTabelaPrincipalConcluida'
+        visible="{=
+            ${TipoNegociacao} === 'A'
             }">
         <uxap:subSections>
             <uxap:ObjectPageSubSection title="Variação Custo" id="variacaoCustoSubSection" visible="true">
@@ -61,10 +60,7 @@
         }"
         id="comparativoUFObjectPageSection"
         visible="{=
-            ${TipoNegociacao} === 'A' ||
-            ${Origem} === 'F' ||
-            ${Status} === 'N' || 
-            ${Status} === 'F'
+            ${TipoNegociacao} === 'A'
             }"
         >
         <uxap:subSections>

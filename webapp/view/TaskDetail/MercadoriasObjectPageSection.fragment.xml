@@ -3,9 +3,8 @@
     >
 
     <uxap:ObjectPageSection id="itemsObjectPageSection" title="Análise e Decisão"
-        visible="{
-            parts: [ {path: 'TipoNegociacao'}, {path: 'Status'} ],
-            formatter: '.formatter.isTabelaPrincipalConcluida'
+        visible="{=
+            ${TipoNegociacao} === 'A'
             }">
         <uxap:subSections>
             <uxap:ObjectPageSubSection id="itemsObjectPageSubSection" title="Análises e Decisão">
