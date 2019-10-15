@@ -183,18 +183,31 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
                 var info = bc.getObject(bc.getPath() + '/informacao');
                 var nome = bc.getObject(bc.getPath() + '/itemMerc/Nome');
                 var precoVenda = bc.getObject(bc.getPath() + '/simulacao/PrecoVenda');
+                var pai = bc.getObject(bc.getPath() + '/material/MaterialPai');
                 if(info.MenorPrecoMercado == 0){
                     var obj = bc.getObject();
                     obj.MaterialID = parseInt(obj.MaterialID).toString() ;
                     obj.Nome = nome;
                     obj.PrecoVenda = precoVenda;
                     obj.PrecoVenda = obj.PrecoVenda.replace(/\./g,',')
-                    //obj.MaterialID = obj.MaterialID + " " + nome;
+                    obj.MaterialPai = pai;
                     return obj;
                 }                
-            });
+            });        
+        //removemos objetos vazios
         let objetosSemPreco = selectedObjects.filter( obj => obj != undefined );
-        let sHtmlRowsItemsSelecionados = objetosSemPreco.reduce( (sHtml, oItem) => `${sHtml}
+        //removemos duplicados com mesmo material pai 
+        this.materialpai = [];
+        this.listasemduplicados = [];
+        for (var i = 0; i < objetosSemPreco.length; i++) {
+            if ( this.materialpai.indexOf(objetosSemPreco[i].MaterialPai) == -1 ){
+                this.materialpai.push(objetosSemPreco[i].MaterialPai);
+                this.listasemduplicados.push(objetosSemPreco[i]);
+            }
+        }
+        
+        
+        let sHtmlRowsItemsSelecionados = this.listasemduplicados.reduce( (sHtml, oItem) => `${sHtml}
         <tr>
             <td ${sCellStyle}>${oItem.OrgID}</td>
             <td ${sCellStyle}>${oItem.MaterialID}</td>
