@@ -186,7 +186,7 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
                 var pai = bc.getObject(bc.getPath() + '/material/MaterialPai');
                 if(info.MenorPrecoMercado == 0){
                     var obj = bc.getObject();
-                    obj.MaterialID = parseInt(obj.MaterialID).toString() ;
+                    obj.MaterialID = parseInt(pai).toString() ;
                     obj.Nome = nome;
                     obj.PrecoVenda = precoVenda;
                     obj.PrecoVenda = obj.PrecoVenda.replace(/\./g,',')
