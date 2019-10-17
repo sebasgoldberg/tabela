@@ -160,11 +160,13 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
         let oNegociacao = oContext.getObject();
         let sPath = oContext.getPath();
         let nomeFornecedor = m.getProperty(sPath + '/fornecedor/Nome');
+        let nomeBandeira = m.getProperty(sPath + '/bandeira/Nome');
+        let negociacaoId = parseInt(oNegociacao.ID).toString();
 
         
 
         // Sugerimos o assunto
-        this.getModel('mail').setProperty('/assunto',`Pesquisa de Preço - Negociação ${oNegociacao.ID}`);
+        this.getModel('mail').setProperty('/assunto',`Pesquisa de Preço - Negociação ${negociacaoId} ${nomeBandeira}`);
 
         //Sugerimos o destinatário
         this.getModel('mail').setProperty('/destinatarios',oNegociacao.Email);
