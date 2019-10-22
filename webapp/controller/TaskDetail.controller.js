@@ -185,14 +185,18 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
                 var info = bc.getObject(bc.getPath() + '/informacao');
                 var nome = bc.getObject(bc.getPath() + '/itemMerc/Nome');
                 var precoVenda = bc.getObject(bc.getPath() + '/simulacao/PrecoVenda');
-                var pai = bc.getObject(bc.getPath() + '/material/MaterialPai');
+                var oMaterial = bc.getObject(bc.getPath() + '/material/');
+                //var pai = bc.getObject(bc.getPath() + '/material/MaterialPai');
+                //var ean = bc.getObject(bc.getPath() + '/material/Ean');
+
                 if(info.MenorPrecoMercado == 0){
                     var obj = bc.getObject();
-                    obj.MaterialID = parseInt(pai).toString() ;
+                    obj.MaterialID = parseInt(oMaterial.MaterialPai).toString() ;
                     obj.Nome = nome;
                     obj.PrecoVenda = precoVenda;
-                    obj.PrecoVenda = obj.PrecoVenda.replace(/\./g,',')
-                    obj.MaterialPai = pai;
+                    obj.PrecoVenda = obj.PrecoVenda.replace(/\./g,',');
+                    obj.MaterialPai = oMaterial.MaterialPai;
+                    obj.CategoriaMaterial = oMaterial.CategoriaMaterial;
                     return obj;
                 }                
             });        
@@ -202,12 +206,22 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
         this.materialpai = [];
         this.listasemduplicados = [];
         for (var i = 0; i < objetosSemPreco.length; i++) {
-            if ( this.materialpai.indexOf(objetosSemPreco[i].MaterialPai) == -1 ){
-                this.materialpai.push(objetosSemPreco[i].MaterialPai);
-                this.listasemduplicados.push(objetosSemPreco[i]);
-            }
-        }
-        
+
+            switch(objetosSemPreco[i].CategoriaMaterial){
+                case "02":
+                    //verifica se item variante já foi adicionado a lista
+                    if ( this.materialpai.indexOf(objetosSemPreco[i].MaterialPai) == -1 ){
+                        this.materialpai.push(objetosSemPreco[i].MaterialPai);
+                        this.listasemduplicados.push(objetosSemPreco[i]);
+                    }
+                    break;
+                default:
+                        this.materialpai.push(objetosSemPreco[i].MaterialPai);
+                        this.listasemduplicados.push(objetosSemPreco[i]);
+                        break;
+            };
+            
+        }        
         
         let sHtmlRowsItemsSelecionados = this.listasemduplicados.reduce( (sHtml, oItem) => `${sHtml}
         <tr>
