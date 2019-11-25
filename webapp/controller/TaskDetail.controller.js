@@ -155,11 +155,18 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
     onSolicitarPesquisa: function(oEvent) {
 
         let v = this.getView();
+        let m = v.getModel();
+        let oContext = v.getBindingContext();
+        let oNegociacao = oContext.getObject();
+        let sPath = oContext.getPath();
+        let nomeFornecedor = m.getProperty(sPath + '/fornecedor/Nome');
+        let nomeBandeira = m.getProperty(sPath + '/bandeira/Nome');
+        let negociacaoId = parseInt(oNegociacao.ID).toString();
 
-        let oNegociacao = v.getBindingContext().getObject();
+        
 
         // Sugerimos o assunto
-        this.getModel('mail').setProperty('/assunto',`Pesquisa de Preço - Negociação ${oNegociacao.ID}`);
+        this.getModel('mail').setProperty('/assunto',`Pesquisa de Preço - Negociação ${negociacaoId} ${nomeBandeira}`);
 
         //Sugerimos o destinatário
         this.getModel('mail').setProperty('/destinatarios',oNegociacao.Email);
@@ -169,6 +176,65 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
         let sBorder = "border: 1px solid black;";
         let sTableStyle = `style="margin: 1em; ${sBorder}"`
         let sCellStyle = `style="padding: 5px; ${sBorder}"`;
+        let sCellStyleCenter = `style="padding: 5px; ${sBorder}"`;
+        //separamos os registros a serem exibidos no corpo
+        let selectedIndices = oTree.getSelectedIndices();
+        let selectedContexts = selectedIndices.map( index => oTree.getContextByIndex(index) );
+        let selectedObjects = selectedContexts.map( 
+            bc => {
+                var info = bc.getObject(bc.getPath() + '/informacao');
+                var nome = bc.getObject(bc.getPath() + '/itemMerc/Nome');
+                var precoVenda = bc.getObject(bc.getPath() + '/simulacao/PrecoVenda');
+                var oMaterial = bc.getObject(bc.getPath() + '/material/');
+                //var pai = bc.getObject(bc.getPath() + '/material/MaterialPai');
+                //var ean = bc.getObject(bc.getPath() + '/material/Ean');
+
+                if(info.MenorPrecoMercado == 0){
+                    var obj = bc.getObject();
+                    obj.MaterialID = parseInt(oMaterial.MaterialPai).toString() ;
+                    obj.Nome = nome;
+                    obj.PrecoVenda = precoVenda;
+                    obj.PrecoVenda = obj.PrecoVenda.replace(/\./g,',');
+                    obj.MaterialPai = oMaterial.MaterialPai;
+                    obj.CategoriaMaterial = oMaterial.CategoriaMaterial;
+                    return obj;
+                }                
+            });        
+        //removemos objetos vazios
+        let objetosSemPreco = selectedObjects.filter( obj => obj != undefined );
+        //removemos duplicados com mesmo material pai 
+        this.materialpai = [];
+        this.listasemduplicados = [];
+        for (var i = 0; i < objetosSemPreco.length; i++) {
+
+            switch(objetosSemPreco[i].CategoriaMaterial){
+                case "02":
+                    //verifica se item variante já foi adicionado a lista
+                    if ( this.materialpai.indexOf(objetosSemPreco[i].MaterialPai) == -1 ){
+                        this.materialpai.push(objetosSemPreco[i].MaterialPai);
+                        this.listasemduplicados.push(objetosSemPreco[i]);
+                    }
+                    break;
+                default:
+                        this.materialpai.push(objetosSemPreco[i].MaterialPai);
+                        this.listasemduplicados.push(objetosSemPreco[i]);
+                        break;
+            };
+            
+        }        
+        
+        let sHtmlRowsItemsSelecionados = this.listasemduplicados.reduce( (sHtml, oItem) => `${sHtml}
+        <tr>
+            <td ${sCellStyle}>${oItem.OrgID}</td>
+            <td ${sCellStyle}>${oItem.MaterialID}</td>
+            <td ${sCellStyle}>${oItem.EAN}</td>
+            <td ${sCellStyle}>${oItem.Nome}</td>
+            <td align='center' ${sCellStyle}>${oItem.PrecoVenda}</td>
+            
+        </tr>
+        `, '');
+
+             /*
         let sHtmlRowsItemsSelecionados = oTree.getSelectedIndices()
             .map( index => oTree.getContextByIndex(index) )
             .map( bc => bc.getObject() )
@@ -179,7 +245,7 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
                     <td ${sCellStyle}>${oItem.MaterialID}</td>
                 </tr>
                 `, '');
-
+        */
         if (!sHtmlRowsItemsSelecionados){
             MessageToast.show('Deve selecionar os itens nos quais aplicaria a pesquisa.');
             return;
@@ -187,13 +253,15 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
 
         this.getModel('mail').setProperty('/corpo',`
             <p>Estimado(s),</p>
-            <p>Solicitamos por favor a pesquisa de preço de venda dos seguintes items associados a negociação ${oNegociacao.ID}</p>
+            <p>Solicitamos por favor a pesquisa de preço de venda dos seguintes items associados a negociação ${oNegociacao.ID} ${nomeFornecedor}</p>
             <p>
             <table ${sTableStyle}>
                 <tr>
                     <th ${sCellStyle}>UF</th>
-                    <th ${sCellStyle}>Fornecedor</th>
-                    <th ${sCellStyle}>Material</th>
+                    <th ${sCellStyle}>CÓDIGO</th>
+                    <th ${sCellStyle}>EAN</th>
+                    <th ${sCellStyle}>DESCRIÇÃO</th>                    
+                    <th ${sCellStyle}>PREÇO VENDA</th>
                 </tr>
                 ${sHtmlRowsItemsSelecionados}
             </table>
