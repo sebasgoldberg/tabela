@@ -5,7 +5,10 @@
     xmlns:mvc="sap.ui.core.mvc"
     >
 
-                <Column label="UF"
+                <Column label="{
+                    parts: [ {path: 'tipoNegociacao/ID'}, {path: 'TipoAbrangencia'} ],
+                    formatter: '.formatter.formatDescricaoItemOrg'
+                    }"
                     width="12%"
                     sortProperty="OrgID"
                     >

@@ -152,6 +152,16 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
         this.getView().byId('ComparativoUFTable').getBinding('rows').filter(aFilters, FilterType.Application);
     },
 
+    getTituloItemOrg: function(sTipoAbrangencia){
+        let bc = this.getView().getBindingContext()
+        if (!bc)
+            return '';
+        let oNegociacao = bc.getObject();
+        if (!oNegociacao.TipoAbrangencia && !oNegociacao.OrgType && !sTipoAbrangencia)
+            return '';
+        return ( ( oNegociacao.TipoAbrangencia || sTipoAbrangencia ) === 'L' ? 'Loja' : 'UF');
+    },
+    
     onSolicitarPesquisa: function(oEvent) {
 
         let v = this.getView();
@@ -257,7 +267,7 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
             <p>
             <table ${sTableStyle}>
                 <tr>
-                    <th ${sCellStyle}>UF</th>
+                    <th ${sCellStyle}>${this.getTituloItemOrg()}</th>
                     <th ${sCellStyle}>CÓDIGO</th>
                     <th ${sCellStyle}>EAN</th>
                     <th ${sCellStyle}>DESCRIÇÃO</th>                    

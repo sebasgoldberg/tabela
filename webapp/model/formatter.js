@@ -1,7 +1,6 @@
 import formatter from 'simplifique/telaneg/custos/model/formatter';
 import ValueState from "sap/ui/core/ValueState";
 
-
 export default Object.assign({}, formatter, {
 
     botaoNovoLabel: function(sTipoNegociacao){
@@ -50,13 +49,13 @@ export default Object.assign({}, formatter, {
     },
 
     formatDescricaoItemOrg: function(sNegociacaoID, sTipoAbrangencia){
-        return 'UF';
+        return this.getTituloItemOrg(sTipoAbrangencia);
     },
 
-    textoSecaoCustosItens: function(sStatus) {
+    textoSecaoCustosItens: function(sStatus, sTipoAbrangencia) {
         if ( !sStatus || sStatus === 'T' )
-            return "Itens"
-        return "Comparativo UF"
+            return "Itens";
+        return `Comparativo ${this.getTituloItemOrg(sTipoAbrangencia)}`;
     },
 
 });

@@ -76,6 +76,7 @@
                                     text="Nivel UF {= ${GerarPrecoVendaNivelLoja} ? '(se não houver loja definida para a UF)' : '' }"
                                     selected="{GerarPrecoVendaNivelUF}"
                                     enabled="{= ${view>/isNegociacaoEmAnalises} &amp;&amp; ${TipoNegociacao} === 'A' }"
+                                    visible="{= ${TipoAbrangencia} !== 'L'}"
                                     />
                             </VBox>
                         </form:fields>
@@ -153,7 +154,7 @@
                     </form:FormElement>
 
                     <form:FormElement
-                        visible="{= ${TipoNegociacao} === 'A'  &amp;&amp; ${GerarPrecoVendaNivelLoja}}"
+                        visible="{= ${TipoNegociacao} === 'A'  &amp;&amp; ${GerarPrecoVendaNivelLoja} &amp;&amp; ${TipoAbrangencia} !== 'L' }"
                         >
                         <form:label>
                             <Label text="Loja(s) a gravar preço de venda" />
@@ -196,6 +197,23 @@
                         </form:fields>
                     </form:FormElement>
 
+                    <form:FormElement>
+                        <form:label>
+                            <Label text="Tipo de Abrangência" required="true"/>
+                        </form:label>
+                        <form:fields>
+                            <ComboBox
+                                placeholder="Selecione tipo abrangencia"
+                                enabled="{view>/isNegociacaoEditavel}"
+                                id="tipoAbrangenciaComboBox"
+                                selectedKey="{TipoAbrangencia}"
+                                items="{tipoNegociacao/tiposAbrangencia}"
+                                >
+                                <core:Item key="{ID}" text="{Descricao}" />
+                            </ComboBox>
+
+                        </form:fields>
+                    </form:FormElement>
 
                     <form:FormElement>
                         <form:label>
@@ -208,10 +226,8 @@
                         </form:fields>
                     </form:FormElement>
 
-
                 </form:formElements>
             </form:FormContainer>
         </form:formContainers>
     </form:Form>
 </core:FragmentDefinition>
-

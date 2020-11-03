@@ -65,7 +65,10 @@
                 </template>
             </Column>
             <Column width="4%">
-                <m:Label text="UF" />
+                <m:Label text="{
+                    parts: [ {path: 'tipoNegociacao/ID'}, {path: 'TipoAbrangencia'} ],
+                    formatter: '.formatter.formatDescricaoItemOrg'
+                    }" />
                 <template>
                     <m:Text text="{itemOrg/ID}" wrapping="true" />
                 </template>
@@ -241,4 +244,3 @@
     </Table>
 
 </core:FragmentDefinition>
-
