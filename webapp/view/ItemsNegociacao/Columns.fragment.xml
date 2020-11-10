@@ -217,7 +217,7 @@
                                     constraints: { scale: 2 }
                                     }"
                                 state="{
-                                    parts: [ {path: 'simulacao/Margem1'}, {path: 'informacao/MargemTeorica'} ],
+                                    parts: [ {path: 'informacao/Margem1'}, {path: 'informacao/MargemTeorica'} ],
                                     formatter: '.formatter.margemStatus'
                                     }"
                                     />
