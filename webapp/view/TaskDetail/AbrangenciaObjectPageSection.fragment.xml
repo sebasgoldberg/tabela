@@ -2,17 +2,6 @@
     xmlns:uxap="sap.uxap"
     >
 
-    <uxap:ObjectPageSection title="Log Importação" id="logImportacaoObjectPageSection"
-        visible="{= ${Origem} === 'F' &amp;&amp; !${Status} }"> <!-- Em negociação -->
-        <uxap:subSections>
-            <uxap:ObjectPageSubSection title="Log Importação" id="logImportacaoSubSection" >
-                <uxap:blocks>
-                    <core:Fragment fragmentName="simplifique.telaneg.tabela.view.TaskDetail.LogImportacao" type="XML" />
-                </uxap:blocks>
-            </uxap:ObjectPageSubSection>
-        </uxap:subSections>
-    </uxap:ObjectPageSection>
-
     <uxap:ObjectPageSection title="Negociações Geradas" id="negociacoesFilhasObjectPageSection"
         visible="{
             parts: [ {path: 'TipoNegociacao'}, {path: 'Status'} ],

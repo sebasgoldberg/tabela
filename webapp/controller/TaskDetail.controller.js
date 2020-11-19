@@ -20,13 +20,6 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
         return 'tipoNegociacao,fornecedor,status,bandeira,comentarioImpressao,agregacao';
     },
 
-    onMostrarAnexos: function(oEvent) {
-        let sNegociacaoPath = this.getView().getBindingContext().getPath();
-        let oTabelasImportadasDialog = this.getOwnerComponent().getTabelasImportadasDialog();
-        oTabelasImportadasDialog.setCallerController(this);
-        oTabelasImportadasDialog.open(sNegociacaoPath);
-    },
-
     refreshResumo: function() {
         this.getView().byId('resumoTreeTable').getBinding('rows').refresh();
     },
@@ -313,11 +306,13 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
         this.onGetItemsExportados(oEvent);
     },
 
-    refreshLogImportacao: function() {
-        this.getView()
-            .byId('ultimoLogImportacaoTable')
-            .getBinding('rows')
-            .refresh();
+    refreshAfterImport: function() {
+        this.refreshItems();
+        this.refreshLogImportacao();
+        this.refreshItemsFilters();
+        this.refreshFornecedores();
+        this.refreshVariacaoCusto();
+        this.setSelectedSectionById('logImportacaoObjectPageSection');
     },
 
 });

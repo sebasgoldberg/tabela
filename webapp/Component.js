@@ -1,6 +1,6 @@
 import UIComponent from "simplifique/telaneg/custos/Component";
 import models from "simplifique/telaneg/tabela/model/models";
-import TabelasImportadasDialog from "simplifique/telaneg/tabela/controller/TabelasImportadasDialog";
+import TabelasImportadasDialog from "simplifique/telaneg/base/controller/TabelasImportadasDialog";
 import EnvioEmailDialog from "simplifique/telaneg/tabela/controller/EnvioEmailDialog";
 
 export default UIComponent.extend("simplifique.telaneg.tabela.Component", {

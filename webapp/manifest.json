@@ -98,6 +98,11 @@
                             "className": "sap.ui.core.Fragment",
                             "fragmentName": "simplifique.telaneg.custos.view.Empty",
                             "type": "XML"
+                        },
+                        "LogImportacaoObjectPageSection": {
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "simplifique.telaneg.tabela.view.TaskDetail.LogImportacaoObjectPageSection",
+                            "type": "XML"
                         }
                     },
                     "simplifique.telaneg.base.view.FornecedoresAdicionais": {
