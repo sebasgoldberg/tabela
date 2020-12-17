@@ -226,6 +226,24 @@
                         </form:fields>
                     </form:FormElement>
 
+                    <form:FormElement visible="{= ${TipoAbrangencia} === 'U' }">
+                        <form:label>
+                            <Label text="Encerramento Custo Loja" required="true"/>
+                        </form:label>
+                        <form:fields>
+
+                            <ComboBox
+                                placeholder="Selecione tipo encerramento"
+                                enabled="{= ( ( ${view>/isNegociacaoEditavel} ) || ( ${TipoNegociacao} === 'A' &amp;&amp; ${Status} === 'N' ) )}"
+                                id="tipoEncerramentoCustoLoja"
+                                selectedKey="{TipoEncerramentoCustoLoja}"
+                                items="{tipoNegociacao/tiposEncerramentoCustoLoja}"
+                                >
+                                <core:Item key="{ID}" text="{Descricao}" />
+                            </ComboBox>
+
+                        </form:fields>                    </form:FormElement>
+
                 </form:formElements>
             </form:FormContainer>
         </form:formContainers>
