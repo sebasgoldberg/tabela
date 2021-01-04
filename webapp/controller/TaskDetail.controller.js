@@ -75,16 +75,23 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
             });
     },
 
-    onIniciarAnalises: function() {
-        return this.changeStatusNegociacao({
+    onIniciarAnalises: async function() {
+        let functionImportResult = await this.changeStatusNegociacao({
             temCertezaOptions: {
                 pergunta: "Tem certeza que deseja iniciar o analises?",
                 titulo: "Iniciar Analises",
             },
             functionImportPath: '/IniciarAnalises',
             successMessage: "Tarefas de inicio de analises realizadas com sucesso.",
-            errorMessage: "Aconteceram erros ao tentar executar as tarefas de inicio de analises."
+            errorMessage: "Aconteceram erros ao tentar executar as tarefas de inicio de analises.",
+            returnFunctionImportResult: true
             });
+        if (functionImportResult){
+            if (functionImportResult.Status === 'F')
+                MessageToast.show("Tabela finalizada automaticamente por não houver variação nos custos dos itens imputados.")
+            return true;
+        }
+        return false;
     },
 
     onEnviarParaAprovacao: function() {
