@@ -3,6 +3,7 @@ import Controller from "simplifique/telaneg/custos/controller/TaskDetail.control
 import JSONModel from "sap/ui/model/json/JSONModel";
 import FilterType from 'sap/ui/model/FilterType';
 import MessageToast from 'sap/m/MessageToast';
+import MessageBox from 'sap/m/MessageBox';
 
 
 export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDetail", {
@@ -88,7 +89,7 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
             });
         if (functionImportResult){
             if (functionImportResult.Status === 'F')
-                MessageToast.show("Tabela finalizada automaticamente por não houver variação nos custos dos itens imputados.")
+                MessageBox.warning("Tabela finalizada automaticamente por não houver variação nos custos dos itens imputados.");
             return true;
         }
         return false;
