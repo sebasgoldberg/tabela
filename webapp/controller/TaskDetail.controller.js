@@ -89,7 +89,7 @@ export default Controller.extend("simplifique.telaneg.tabela.controller.TaskDeta
             });
         if (functionImportResult){
             if (functionImportResult.Status === 'F')
-                MessageBox.warning("Tabela finalizada automaticamente por não houver variação nos custos dos itens imputados.");
+                MessageBox.warning("Tabela finalizada automaticamente porque não houve variação nos custos dos itens imputados.");
             return true;
         }
         return false;
