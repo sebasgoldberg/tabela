@@ -44,6 +44,23 @@
 
                     <form:FormElement>
                         <form:label>
+                            <Label text="Canal" required="true"/>
+                        </form:label>
+                        <form:fields>
+                            <ComboBox
+                                placeholder="Selecione o canal"
+                                enabled="{= ${view>/isNegociacaoEditavel} &amp;&amp; ${Origem} === 'F' }"
+                                id="canalNegociacaoComboBox"
+                                selectedKey="{Canal}"
+                                items="{/CanalSet}"
+                                >
+                                <core:Item key="{ID}" text="{Nome}" />
+                            </ComboBox>
+                        </form:fields>
+                    </form:FormElement>
+
+                    <form:FormElement>
+                        <form:label>
                             <Label text="Data Envio"/>
                         </form:label>
                         <form:fields>
