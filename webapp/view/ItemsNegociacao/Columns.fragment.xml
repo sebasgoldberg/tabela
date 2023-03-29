@@ -319,7 +319,7 @@
                     </template>
                 </Column>
 
-                <Column id="consultasColumn" label="" width="9%">
+                <Column id="consultasColumn" label="" width="11%">
                     <template>
                         <m:HBox>
                         <core:Icon
@@ -349,10 +349,21 @@
                             />
                         <core:Icon
                             noTabStop="true"
+                            class="sapUiTinyMarginEnd"
                             src="sap-icon://commission-check"
                             hoverColor="#386084"
                             tooltip="Impostos"
                             press="onMostrarImpostos"
+                            visible="{= !${IsGenerico} }"
+                            />
+                        <core:Icon
+                            id="iconRecomposicaoExistente"
+                            noTabStop="true"
+                            src="sap-icon://decision"
+                            size="16px"
+                            hoverColor="#386084"
+                            tooltip="Acordos Vigentes"
+                            press="onMostrarRecomposicaoExistente"
                             visible="{= !${IsGenerico} }"
                             />
                         </m:HBox>
